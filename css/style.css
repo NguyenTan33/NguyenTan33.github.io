@@ -193,7 +193,7 @@ body::before {
 
 /* HERO SECTION */
 .hero {
-    padding: 105px 0 50px;
+    padding: 20px 0 50px;
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 36px;
@@ -797,7 +797,7 @@ body::before {
     .hero {
         grid-template-columns: 1fr;
         gap: 28px;
-        padding-top: 100px;
+        padding-top: 20px;
         text-align: center;
     }
     .hero-status {
@@ -824,7 +824,7 @@ body::before {
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 95px;
+        padding-top: 20px;
     }
     .nav-menu {
         position: fixed;
@@ -910,4 +910,24 @@ body::before {
 /* Fix Anchor Scroll Overlap */
 section[id] {
     scroll-margin-top: 75px;
+}
+
+/* Guaranteed Header Spacer Element */
+.header-spacer {
+    height: 80px;
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+@media (max-width: 992px) {
+    .header-spacer {
+        height: 85px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-spacer {
+        height: 90px;
+    }
 }
