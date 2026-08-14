@@ -14,8 +14,897 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- External CSS -->
+    <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Embedded CSS for 100% Guaranteed Zero-Break Rendering -->
+    <style>
+/* 
+   NGUYỄN MINH TÂN - .NET BACKEND DEVELOPER PORTFOLIO
+   Ultra-Responsive, Zero-Break Design System
+*/
+
+:root {
+    --bg-void: #07090e;
+    --bg-sec-alt: #0c101b;
+    --bg-card: #111726;
+    --bg-card-hover: #172033;
+    --bg-terminal: #090d16;
+    --bg-header: rgba(7, 9, 14, 0.94);
+    
+    --accent-cyan: #38bdf8;
+    --accent-blue: #2563eb;
+    --accent-purple: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    
+    --border-glass: rgba(56, 189, 248, 0.18);
+    --border-glass-hover: rgba(56, 189, 248, 0.4);
+    --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
+    --shadow-glow-purple: 0 0 25px rgba(139, 92, 246, 0.25);
+    
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', monospace;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-void);
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+    border: 1px solid var(--border-glass);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden !important;
+}
+
+body {
+    background-color: var(--bg-void);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 90% 70%, rgba(139, 92, 246, 0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--bg-header);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-glass);
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 2.5vw, 17px);
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.logo .accent {
+    color: var(--accent-cyan);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-cyan);
+}
+
+.btn-cv {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff !important;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600 !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.btn-cv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    font-size: 18px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 100px 0 60px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 36px;
+    align-items: center;
+}
+
+.hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-green);
+    margin-bottom: 20px;
+    font-family: var(--font-mono);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-green);
+    animation: pulse 1.8s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.hero-heading {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.18;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-title {
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 2vw, 17px);
+    color: var(--accent-cyan);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 28px;
+}
+
+.hero-desc {
+    font-size: clamp(13.5px, 1.6vw, 15.5px);
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    color: #fff;
+    padding: 11px 22px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-glow-purple);
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.45);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    padding: 11px 22px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-glass);
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    padding: 12px 8px;
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.stat-num {
+    font-family: var(--font-mono);
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.stat-label {
+    font-size: 9.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* TERMINAL WIDGET */
+.terminal-box {
+    background: var(--bg-terminal);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-glow);
+    width: 100%;
+}
+
+.terminal-header {
+    background: #111624;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-red { background: var(--accent-red); }
+.dot-yellow { background: var(--accent-amber); }
+.dot-green { background: var(--accent-green); }
+
+.terminal-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.terminal-tabs {
+    display: flex;
+    background: #0d121f;
+    border-bottom: 1px solid var(--border-glass);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    padding: 9px 14px;
+    cursor: pointer;
+    border-right: 1px solid var(--border-glass);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab-btn.active {
+    background: var(--bg-terminal);
+    color: var(--accent-cyan);
+    border-bottom: 2px solid var(--accent-cyan);
+}
+
+.terminal-body {
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: clamp(10.5px, 1.4vw, 12.5px);
+    line-height: 1.65;
+    overflow-x: auto;
+    max-height: 350px;
+}
+
+.code-keyword { color: #f472b6; }
+.code-type { color: #38bdf8; }
+.code-func { color: #60a5fa; }
+.code-str { color: #34d399; }
+.code-comment { color: #64748b; font-style: italic; }
+.code-var { color: #fbbf24; }
+
+/* SECTIONS */
+.section {
+    padding: 70px 0;
+}
+
+.section-alt {
+    background-color: var(--bg-sec-alt);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.section-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-tag {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* PROJECT FEATURED CARD */
+.project-featured {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-head {
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(139, 92, 246, 0.12));
+    border-bottom: 1px solid var(--border-glass);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.project-badge {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.project-name {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 800;
+    color: #fff;
+    margin-top: 6px;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-link {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-glass);
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-link:hover {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+.project-body {
+    padding: 24px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.solution-card {
+    background: var(--bg-terminal);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 18px;
+}
+
+.solution-card h4 {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.solution-card p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* LIVE WEBHOOK SIMULATOR WIDGET */
+.simulator-box {
+    background: #080c16;
+    border: 1px dashed var(--accent-cyan);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    margin-top: 28px;
+}
+
+.sim-title {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--accent-green);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sim-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.sim-input {
+    flex: 1;
+    min-width: 160px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 9px 14px;
+    border-radius: var(--radius-sm);
+    outline: none;
+}
+
+.sim-btn {
+    background: var(--accent-green);
+    color: #000;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sim-btn:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+.sim-console {
+    background: #04060a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #34d399;
+    min-height: 110px;
+    line-height: 1.7;
+}
+
+/* SKILLS MATRIX */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.skill-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.skill-group:hover {
+    border-color: var(--accent-purple);
+    transform: translateY(-3px);
+}
+
+.skill-group-title {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+}
+
+/* TIMELINE */
+.timeline-box {
+    position: relative;
+    padding-left: 28px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-box::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    border: 3px solid var(--bg-void);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.timeline-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 20px;
+}
+
+.timeline-year {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--accent-cyan);
+    margin-bottom: 4px;
+}
+
+.timeline-role {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.timeline-inst {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+/* FOOTER & CONTACT */
+.footer {
+    border-top: 1px solid var(--border-glass);
+    padding: 50px 0 30px;
+    text-align: center;
+    background: rgba(5, 7, 11, 0.95);
+}
+
+.contact-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 36px 20px;
+    max-width: 680px;
+    margin: 0 auto 40px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--accent-green);
+    color: #000;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 10000;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-top: 85px;
+        text-align: center;
+    }
+    .hero-status {
+        margin: 0 auto 16px;
+    }
+    .hero-title {
+        justify-content: center;
+    }
+    .hero-desc {
+        margin: 0 auto 24px;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 80px;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(9, 13, 22, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-glass);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        transform: translateY(-160%);
+        transition: transform 0.3s ease;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+    .nav-menu.active {
+        transform: translateY(0);
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .project-links {
+        width: 100%;
+    }
+    .btn-link {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 14px;
+    }
+    .section {
+        padding: 50px 0;
+    }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    .sim-form {
+        flex-direction: column;
+    }
+    .sim-btn {
+        width: 100%;
+    }
+    .contact-box {
+        padding: 24px 14px;
+    }
+    .social-links {
+        flex-direction: column;
+    }
+    .social-links a {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-stats {
+        grid-template-columns: 1fr;
+    }
+    .terminal-body {
+        padding: 10px;
+        font-size: 10.5px;
+    }
+}
+
+    </style>
 </head>
 <body>
 
@@ -101,44 +990,46 @@
     </section>
 
     <!-- FEATURED PROJECT SPOTLIGHT -->
-    <section class="section container" id="projects">
-        <div class="section-header">
-            <span class="section-tag">// DỰ ÁN THỰC CHUYÊN SÂU</span>
-            <h2 class="section-title">Bách Hóa Xanh E-Commerce Platform</h2>
-        </div>
-
-        <div class="project-featured">
-            <div class="project-head">
-                <div>
-                    <span class="project-badge">MAIN BACKEND ARCHITECT CAPSTONE</span>
-                    <h3 class="project-name">🛒 Bách Hóa Xanh E-Commerce Supermarket System</h3>
-                </div>
-                <div class="project-links">
-                    <a href="https://webcuatan.click" target="_blank" class="btn-link"><i class="fa-solid fa-globe"></i> Live Website</a>
-                    <a href="https://github.com/NguyenTan33/Do_An_E_Commerce_BHX_Web" target="_blank" class="btn-link"><i class="fa-brands fa-github"></i> Source Code</a>
-                </div>
+    <section class="section section-alt" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// DỰ ÁN THỰC CHUYÊN SÂU</span>
+                <h2 class="section-title">Bách Hóa Xanh E-Commerce Platform</h2>
             </div>
 
-            <div class="project-body">
-                <div class="grid-2">
-                    <div class="solution-card">
-                        <h4><i class="fa-solid fa-qrcode"></i> Thanh Toán Tự Động VietQR SePay Webhook</h4>
-                        <p>Tích hợp Webhook SePay lắng nghe biến động tài khoản ngân hàng VietinBank. Sử dụng Regex trích xuất mã đơn <code>BHX{OrderId}</code> để gạch nợ tự động trong <strong>2-3s</strong>, phát hành Email hóa đơn HTML tự động và triển khai Polling Fallback kèm Engine tự động hủy đơn sau 10 phút để hoàn tồn kho.</p>
+            <div class="project-featured">
+                <div class="project-head">
+                    <div>
+                        <span class="project-badge">MAIN BACKEND ARCHITECT CAPSTONE</span>
+                        <h3 class="project-name">🛒 Bách Hóa Xanh E-Commerce Supermarket System</h3>
                     </div>
-
-                    <div class="solution-card">
-                        <h4><i class="fa-solid fa-cubes"></i> Đa Đơn Vị Tính & Kho Quy Đổi (Sales BOM)</h4>
-                        <p>Giải quyết triệt để rủi ro bán lố (Over-selling) khi bán sản phẩm dạng Thùng/Lốc dùng chung kho với Lon/Cái lẻ. Thiết kế mô hình CSDL Entity Framework 6 với <code>ParentProductId</code> và <code>UnitMultiplier</code>, tự động quy đổi tồn kho khả dụng và trừ kho gốc lon lẻ khi phát sinh đơn hàng.</p>
+                    <div class="project-links">
+                        <a href="https://webcuatan.click" target="_blank" class="btn-link"><i class="fa-solid fa-globe"></i> Live Website</a>
+                        <a href="https://github.com/NguyenTan33/Do_An_E_Commerce_BHX_Web" target="_blank" class="btn-link"><i class="fa-brands fa-github"></i> Source Code</a>
                     </div>
+                </div>
 
-                    <div class="solution-card">
-                        <h4><i class="fa-solid fa-sitemap"></i> Tái Cấu Trúc Thin Controller / Service Layer</h4>
-                        <p>Refactor hơn 10 Fat Controllers (>1.000 dòng code EF/SQL trực tiếp) về dạng Thin Controller. Đóng gói toàn bộ Business Logic vào tầng Service Layer qua Interface và Dependency Injection, tuân thủ nguyên lý Separation of Concerns (SoC).</p>
-                    </div>
+                <div class="project-body">
+                    <div class="grid-2">
+                        <div class="solution-card">
+                            <h4><i class="fa-solid fa-qrcode"></i> Thanh Toán Tự Động VietQR SePay Webhook</h4>
+                            <p>Tích hợp Webhook SePay lắng nghe biến động tài khoản ngân hàng VietinBank. Sử dụng Regex trích xuất mã đơn <code>BHX{OrderId}</code> để gạch nợ tự động trong <strong>2-3s</strong>, phát hành Email hóa đơn HTML tự động và triển khai Polling Fallback kèm Engine tự động hủy đơn sau 10 phút để hoàn tồn kho.</p>
+                        </div>
 
-                    <div class="solution-card">
-                        <h4><i class="fa-solid fa-chart-line"></i> Async User Behavior Analytics (Non-blocking)</h4>
-                        <p>Xây dựng module ghi nhận log hành vi người dùng (SearchKeyword, Page Dwell Time, Rage Click) bất đồng bộ ngầm bằng <code>Task.Run</code> và Beacon API mà không gây nghẽn (Non-blocking) luồng xử lý trang web chính.</p>
+                        <div class="solution-card">
+                            <h4><i class="fa-solid fa-cubes"></i> Đa Đơn Vị Tính & Kho Quy Đổi (Sales BOM)</h4>
+                            <p>Giải quyết triệt để rủi ro bán lố (Over-selling) khi bán sản phẩm dạng Thùng/Lốc dùng chung kho với Lon/Cái lẻ. Thiết kế mô hình CSDL Entity Framework 6 với <code>ParentProductId</code> và <code>UnitMultiplier</code>, tự động quy đổi tồn kho khả dụng và trừ kho gốc lon lẻ khi phát sinh đơn hàng.</p>
+                        </div>
+
+                        <div class="solution-card">
+                            <h4><i class="fa-solid fa-sitemap"></i> Tái Cấu Trúc Thin Controller / Service Layer</h4>
+                            <p>Refactor hơn 10 Fat Controllers (>1.000 dòng code EF/SQL trực tiếp) về dạng Thin Controller. Đóng gói toàn bộ Business Logic vào tầng Service Layer qua Interface và Dependency Injection, tuân thủ nguyên lý Separation of Concerns (SoC).</p>
+                        </div>
+
+                        <div class="solution-card">
+                            <h4><i class="fa-solid fa-chart-line"></i> Async User Behavior Analytics (Non-blocking)</h4>
+                            <p>Xây dựng module ghi nhận log hành vi người dùng (SearchKeyword, Page Dwell Time, Rage Click) bất đồng bộ ngầm bằng <code>Task.Run</code> và Beacon API mà không gây nghẽn (Non-blocking) luồng xử lý trang web chính.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,45 +1059,47 @@
     </section>
 
     <!-- SKILLS MATRIX -->
-    <section class="section container" id="skills">
-        <div class="section-header">
-            <span class="section-tag">// KỸ NĂNG CHUYÊN MÔN</span>
-            <h2 class="section-title">Technical Skill Matrix</h2>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fa-solid fa-code"></i> Backend & Core</div>
-                <div class="skill-list">
-                    <span class="skill-tag">C# (.NET)</span>
-                    <span class="skill-tag">ASP.NET MVC 5</span>
-                    <span class="skill-tag">.NET Core</span>
-                    <span class="skill-tag">LINQ</span>
-                    <span class="skill-tag">Async / Await</span>
-                    <span class="skill-tag">RESTful APIs</span>
-                </div>
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// KỸ NĂNG CHUYÊN MÔN</span>
+                <h2 class="section-title">Technical Skill Matrix</h2>
             </div>
 
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & ORM</div>
-                <div class="skill-list">
-                    <span class="skill-tag">MS SQL Server</span>
-                    <span class="skill-tag">SSMS</span>
-                    <span class="skill-tag">Entity Framework 6</span>
-                    <span class="skill-tag">Code First / DbContext</span>
-                    <span class="skill-tag">Query Optimization</span>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa-solid fa-code"></i> Backend & Core</div>
+                    <div class="skill-list">
+                        <span class="skill-tag">C# (.NET)</span>
+                        <span class="skill-tag">ASP.NET MVC 5</span>
+                        <span class="skill-tag">.NET Core</span>
+                        <span class="skill-tag">LINQ</span>
+                        <span class="skill-tag">Async / Await</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Architecture & Integrations</div>
-                <div class="skill-list">
-                    <span class="skill-tag">Clean Architecture</span>
-                    <span class="skill-tag">Thin Controller Pattern</span>
-                    <span class="skill-tag">SePay VietQR Webhook</span>
-                    <span class="skill-tag">MoMo REST API</span>
-                    <span class="skill-tag">ASP.NET Identity 2.0</span>
-                    <span class="skill-tag">SMTP Invoice Mailer</span>
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & ORM</div>
+                    <div class="skill-list">
+                        <span class="skill-tag">MS SQL Server</span>
+                        <span class="skill-tag">SSMS</span>
+                        <span class="skill-tag">Entity Framework 6</span>
+                        <span class="skill-tag">Code First / DbContext</span>
+                        <span class="skill-tag">Query Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Architecture & Integrations</div>
+                    <div class="skill-list">
+                        <span class="skill-tag">Clean Architecture</span>
+                        <span class="skill-tag">Thin Controller Pattern</span>
+                        <span class="skill-tag">SePay VietQR Webhook</span>
+                        <span class="skill-tag">MoMo REST API</span>
+                        <span class="skill-tag">ASP.NET Identity 2.0</span>
+                        <span class="skill-tag">SMTP Invoice Mailer</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -255,7 +1148,215 @@
     <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast">✓ Đã sao chép Email vào bộ nhớ tạm!</div>
 
-    <!-- External JavaScript -->
+    <!-- External + Embedded JavaScript -->
     <script src="js/main.js"></script>
+    <script>
+/* 
+   NGUYỄN MINH TÂN - .NET BACKEND DEVELOPER PORTFOLIO
+   Interactive Script
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    initTypingEffect();
+    switchCodeTab(0);
+    initNavToggle();
+    initScrollSpy();
+});
+
+const typingTexts = [
+    ".NET Backend Developer", 
+    "Clean Architecture Advocate", 
+    "SePay Webhook Integrator", 
+    "HUFLIT IT Senior Student"
+];
+
+let textIdx = 0;
+let charIdx = 0;
+let isDeleting = false;
+
+function initTypingEffect() {
+    const elem = document.getElementById("typing-text");
+    if (!elem) return;
+
+    const currentText = typingTexts[textIdx];
+    
+    if (isDeleting) {
+        elem.textContent = currentText.substring(0, charIdx - 1);
+        charIdx--;
+    } else {
+        elem.textContent = currentText.substring(0, charIdx + 1);
+        charIdx++;
+    }
+
+    let typeSpeed = isDeleting ? 35 : 75;
+
+    if (!isDeleting && charIdx === currentText.length) {
+        typeSpeed = 1800;
+        isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        textIdx = (textIdx + 1) % typingTexts.length;
+        typeSpeed = 400;
+    }
+
+    setTimeout(initTypingEffect, typeSpeed);
+}
+
+const codeSnippets = [
+`// 1. SePayWebhookService.cs - Auto Payment Reconciliation 24/7
+public async Task<(bool Success, string Message, int OrderId)> ProcessWebhookAsync(SePayWebhookModel model)
+{
+    // Regex trích xuất mã đơn BHX từ nội dung chuyển khoản VietinBank
+    string searchContent = (model.content ?? "") + " " + (model.description ?? "");
+    int orderId = ExtractOrderId(searchContent); // BHX1234 -> OrderID 1234
+    
+    var order = await _dbContext.Order.FirstOrDefaultAsync(o => o.Id == orderId);
+    if (order == null) return (false, "Đơn hàng không tồn tại", 0);
+
+    // Gạch nợ tự động 24/7 không cần con người can thiệp
+    order.PaymentStatus = 1; // 1 = Đã Thanh Toán
+    await _dbContext.SaveChangesAsync();
+
+    // Gửi Email hóa đơn HTML tự động
+    OrderInvoiceEmailService.SendOrderConfirmationEmail(order, order.User.Email);
+    return (true, $"[GẠCH NỢ THÀNH CÔNG] Đơn #{orderId}!", orderId);
+}`,
+`// 2. OrderCheckoutService.cs - Thin Controller & Service Layer Pattern
+public async Task<(Cart CartData, List<UserAddress> Addresses, List<VoucherResult> Vouchers)> 
+GetCheckoutDataAsync(string userId, string selectedIds, string coupon)
+{
+    var cart = _cartService.GetCartByUserId(userId);
+    var userAddresses = await _dbContext.UserAddresses
+        .Where(a => a.UserId == userId).OrderByDescending(a => a.IsDefault).ToListAsync();
+
+    // Đánh giá Smart Voucher Engine theo giỏ hàng thực tế
+    var suggestedVouchers = _voucherService.GetSuggestedVouchersForCart(cart.CartDetails, userId);
+
+    return (cart, userAddresses, suggestedVouchers);
+}`,
+`// 3. ProductSalesBOM.cs - Multi-Unit Conversion & Parent Stock Hierarchy
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; } // Lon Coca-Cola lẻ vs Thùng 24 lon
+    public int? ParentProductId { get; set; } // Con trỏ về sản phẩm mẹ (Lon lẻ)
+    public int UnitMultiplier { get; set; } = 1; // Thùng = 24
+
+    [NotMapped]
+    public int AvailableStock => ParentProductId.HasValue && ParentProduct != null 
+        ? ParentProduct.Quantity / (UnitMultiplier > 0 ? UnitMultiplier : 1) 
+        : Quantity;
+}`
+];
+
+function switchCodeTab(index) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+    });
+    
+    const contentBox = document.getElementById('code-content');
+    if (contentBox) {
+        contentBox.innerHTML = `<pre><code>${formatCode(codeSnippets[index])}</code></pre>`;
+    }
+}
+
+function formatCode(code) {
+    return code
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\/\/.*/g, '<span class="code-comment">$&</span>')
+        .replace(/(public|async|Task|string|int|bool|var|await|return|class|if|new)/g, '<span class="code-keyword">$1</span>')
+        .replace(/(ProcessWebhookAsync|ExtractOrderId|FirstOrDefaultAsync|SaveChangesAsync|SendOrderConfirmationEmail|GetCheckoutDataAsync)/g, '<span class="code-func">$1</span>');
+}
+
+function runWebhookSimulation() {
+    const orderInput = document.getElementById('sim-order-id');
+    const amountInput = document.getElementById('sim-amount');
+    const logBox = document.getElementById('sim-log');
+
+    const orderId = orderInput ? (orderInput.value || "BHX8899") : "BHX8899";
+    const amount = amountInput ? (parseInt(amountInput.value) || 150000) : 150000;
+
+    logBox.innerHTML = `<span style="color:#38bdf8;">[${new Date().toLocaleTimeString()}] [WEBHOOK INCOMING] Received POST request from SePay Gateway...</span><br>`;
+    
+    setTimeout(() => {
+        logBox.innerHTML += `<span style="color:#fbbf24;">[${new Date().toLocaleTimeString()}] [PAYLOAD PARSED] TransferAmount: ${amount.toLocaleString()}đ | Content: "CHUYEN TIEN THANH TOAN DON HANG ${orderId}"</span><br>`;
+    }, 600);
+
+    setTimeout(() => {
+        logBox.innerHTML += `<span style="color:#a78bfa;">[${new Date().toLocaleTimeString()}] [REGEX MATCHED] Extracted OrderID: ${orderId.replace(/\D/g, '') || 8899} from transaction text.</span><br>`;
+    }, 1200);
+
+    setTimeout(() => {
+        logBox.innerHTML += `<span style="color:#34d399; font-weight:bold;">[${new Date().toLocaleTimeString()}] [AUTO RECONCILED SUCCESS] Order #${orderId.replace(/\D/g, '') || 8899} PaymentStatus = 1 (PAID VIA VIETQR).</span><br>`;
+    }, 1800);
+
+    setTimeout(() => {
+        logBox.innerHTML += `<span style="color:#60a5fa;">[${new Date().toLocaleTimeString()}] [SMTP EMAIL SENT] HTML Invoice & Receipt dispatched to Customer.</span><br>`;
+    }, 2400);
+}
+
+function copyEmail(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText("nguyenminhtan301205@gmail.com");
+    const toast = document.getElementById("toast");
+    if (toast) {
+        toast.style.display = "block";
+        setTimeout(() => { toast.style.display = "none"; }, 3000);
+    }
+}
+
+function initNavToggle() {
+    const toggleBtn = document.getElementById('nav-toggle-btn');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = toggleBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-xmark');
+                }
+            });
+        });
+    }
+}
+
+function initScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+    </script>
 </body>
 </html>

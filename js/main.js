@@ -1,6 +1,6 @@
 /* 
    NGUYỄN MINH TÂN - .NET BACKEND DEVELOPER PORTFOLIO
-   Interactive Logic Script
+   Interactive Script
 */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollSpy();
 });
 
-// Dynamic Typing Effect
 const typingTexts = [
     ".NET Backend Developer", 
     "Clean Architecture Advocate", 
@@ -50,7 +49,6 @@ function initTypingEffect() {
     setTimeout(initTypingEffect, typeSpeed);
 }
 
-// Code Snippets for Terminal Playground
 const codeSnippets = [
 `// 1. SePayWebhookService.cs - Auto Payment Reconciliation 24/7
 public async Task<(bool Success, string Message, int OrderId)> ProcessWebhookAsync(SePayWebhookModel model)
@@ -118,7 +116,6 @@ function formatCode(code) {
         .replace(/(ProcessWebhookAsync|ExtractOrderId|FirstOrDefaultAsync|SaveChangesAsync|SendOrderConfirmationEmail|GetCheckoutDataAsync)/g, '<span class="code-func">$1</span>');
 }
 
-// Live Webhook Simulator
 function runWebhookSimulation() {
     const orderInput = document.getElementById('sim-order-id');
     const amountInput = document.getElementById('sim-amount');
@@ -146,7 +143,6 @@ function runWebhookSimulation() {
     }, 2400);
 }
 
-// Copy Email Toast Notification
 function copyEmail(e) {
     e.preventDefault();
     navigator.clipboard.writeText("nguyenminhtan301205@gmail.com");
@@ -157,7 +153,6 @@ function copyEmail(e) {
     }
 }
 
-// Mobile Nav Toggle
 function initNavToggle() {
     const toggleBtn = document.getElementById('nav-toggle-btn');
     const navMenu = document.getElementById('nav-menu');
@@ -172,7 +167,6 @@ function initNavToggle() {
             }
         });
 
-        // Close menu on link click
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -187,7 +181,6 @@ function initNavToggle() {
     }
 }
 
-// ScrollSpy Active Link Highlight
 function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
