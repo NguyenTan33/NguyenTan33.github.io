@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Minh Tân | .NET Backend Developer Portfolio</title>
+    <meta name="description" content="Portfolio cá nhân của Nguyễn Minh Tân - .NET Backend Developer. Chuyên môn: ASP.NET MVC 5, Entity Framework 6, Clean Architecture, VietQR SePay Webhook & SQL Server.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-void: #07090e;
+            --bg-card: #0f1420;
+            --bg-card-hover: #161d2f;
+            --bg-terminal: #0b0f19;
+            
+            --accent-cyan: #38bdf8;
+            --accent-blue: #2563eb;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            
+            --border-glass: rgba(56, 189, 248, 0.15);
+            --border-glass-hover: rgba(56, 189, 248, 0.35);
+            --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
+            --shadow-glow-purple: 0 0 25px rgba(139, 92, 246, 0.2);
+            
+            --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Scanline Overlay Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.6;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(7, 9, 14, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo .accent {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .btn-cv {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: #fff !important;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        .btn-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 140px 0 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-green);
+            margin-bottom: 24px;
+            font-family: var(--font-mono);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 4.5vw, 54px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: #fff;
+            padding: 12px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-glow-purple);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            padding: 12px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* HERO STATS GRID */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: var(--font-mono);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* TERMINAL WIDGET */
+        .terminal-box {
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .terminal-header {
+            background: #131826;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #f59e0b; }
+        .dot-green { background: #10b981; }
+
+        .terminal-title {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .terminal-tabs {
+            display: flex;
+            background: #0f1422;
+            border-bottom: 1px solid var(--border-glass);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-right: 1px solid var(--border-glass);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: var(--bg-terminal);
+            color: var(--accent-cyan);
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.7;
+            overflow-x: auto;
+            max-height: 380px;
+        }
+
+        .code-keyword { color: #f472b6; }
+        .code-type { color: #38bdf8; }
+        .code-func { color: #60a5fa; }
+        .code-str { color: #34d399; }
+        .code-comment { color: #64748b; font-style: italic; }
+        .code-var { color: #fbbf24; }
+
+        /* SECTION TITLES */
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* PROJECT FEATURED CARD */
+        .project-featured {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-featured:hover {
+            border-color: var(--border-glass-hover);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .project-head {
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .project-name {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-top: 8px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-link {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .project-body {
+            padding: 32px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .solution-card {
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .solution-card h4 {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* LIVE WEBHOOK SIMULATOR WIDGET */
+        .simulator-box {
+            background: #090e18;
+            border: 1px dashed var(--accent-cyan);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .sim-title {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--accent-green);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sim-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .sim-input {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .sim-btn {
+            background: var(--accent-green);
+            color: #000;
+            border: none;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sim-btn:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .sim-console {
+            background: #04060a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #34d399;
+            min-height: 120px;
+        }
+
+        /* SKILLS MATRIX */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-group:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-4px);
+        }
+
+        .skill-group-title {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--accent-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* EDUCATION & TIMELINE */
+        .timeline-box {
+            position: relative;
+            padding-left: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-box::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            border: 3px solid var(--bg-void);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .timeline-year {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent-cyan);
+            margin-bottom: 6px;
+        }
+
+        .timeline-role {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .timeline-inst {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER & CONTACT */
+        .footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 60px 0 40px;
+            text-align: center;
+            background: rgba(5, 7, 11, 0.9);
+        }
+
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-green);
+            color: #000;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 10000;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-code accent"></i> NGUYEN_MINH_TAN<span class="accent">.NET</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Tóm Tắt</a></li>
+                <li><a href="#projects">Dự Án</a></li>
+                <li><a href="#simulator">Live Webhook Test</a></li>
+                <li><a href="#skills">Kỹ Năng</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+                <li><a href="https://webcuatan.click" target="_blank" class="btn-cv"><i class="fa-solid fa-globe"></i> Live Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero container" id="about">
+        <div class="hero-content">
+            <div class="hero-status">
+                <span class="pulse-dot"></span> ĐANG TÌM VỊ TRÍ INTERN / JUNIOR .NET DEVELOPER
+            </div>
+            <h1>Xin chào, Tôi là <br><span class="gradient-text">Nguyễn Minh Tân</span></h1>
+            <div class="hero-title">
+                <i class="fa-solid fa-terminal"></i> <span id="typing-text"></span>
+            </div>
+            <p class="hero-desc">
+                Sinh viên năm cuối ngành Kỹ thuật Phần mềm tại <strong>HUFLIT</strong>. Chuyên môn thiết kế kiến trúc Backend với <strong>C#, ASP.NET MVC 5, Entity Framework 6 & SQL Server</strong>. Đã thực chiến thành công hệ thống gạch nợ tự động VietQR SePay Webhook 24/7 và đồng bộ kho đa đơn vị (Sales BOM).
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary"><i class="fa-solid fa-rocket"></i> Xem Dự Án Thực Chiến</a>
+                <a href="https://github.com/NguyenTan33" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub Profile</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-num">10+</div>
+                    <div class="stat-label">Controllers Refactored</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">2-3s</div>
+                    <div class="stat-label">VietQR Reconciled</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Stock Synced</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">2.95</div>
+                    <div class="stat-label">GPA HUFLIT</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CODE TERMINAL PLAYGROUND -->
+        <div class="terminal-box">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="terminal-title">backend-architecture-preview.cs</div>
+            </div>
+            <div class="terminal-tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">SePayWebhookService.cs</button>
+                <button class="tab-btn" onclick="switchTab(1)">OrderCheckoutService.cs</button>
+                <button class="tab-btn" onclick="switchTab(2)">ProductSalesBOM.cs</button>
+            </div>
+            <div class="terminal-body" id="code-content">
+                <!-- Dynamic Code Content Populated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECT SPOTLIGHT -->
+    <section class="section container" id="projects">
+        <div class="section-header">
+            <span class="section-tag">// DỰ ÁN THỰC CHUYÊN SÂU</span>
+            <h2 class="section-title">Bách Hóa Xanh E-Commerce Platform</h2>
+        </div>
+
+        <div class="project-featured">
+            <div class="project-head">
+                <div>
+                    <span class="project-badge">MAIN BACKEND ARCHITECT CAPSTONE</span>
+                    <h3 class="project-name">🛒 Bách Hóa Xanh E-Commerce Supermarket System</h3>
+                </div>
+                <div class="project-links">
+                    <a href="https://webcuatan.click" target="_blank" class="btn-link"><i class="fa-solid fa-globe"></i> Live Website</a>
+                    <a href="https://github.com/NguyenTan33/Do_An_E_Commerce_BHX_Web" target="_blank" class="btn-link"><i class="fa-brands fa-github"></i> Source Code</a>
+                </div>
+            </div>
+
+            <div class="project-body">
+                <div class="grid-2">
+                    <div class="solution-card">
+                        <h4><i class="fa-solid fa-qrcode"></i> Thanh Toán Tự Động VietQR SePay Webhook</h4>
+                        <p>Tích hợp Webhook SePay lắng nghe biến động tài khoản ngân hàng VietinBank. Sử dụng Regex trích xuất mã đơn <code>BHX{OrderId}</code> để gạch nợ tự động trong <strong>2-3s</strong>, phát hành Email hóa đơn HTML tự động và triển khai Polling Fallback kèm Engine tự động hủy đơn sau 10 phút để hoàn tồn kho.</p>
+                    </div>
+
+                    <div class="solution-card">
+                        <h4><i class="fa-solid fa-cubes"></i> Đa Đơn Vị Tính & Kho Quy Đổi (Sales BOM)</h4>
+                        <p>Giải quyết triệt để rủi ro bán lố (Over-selling) khi bán sản phẩm dạng Thùng/Lốc dùng chung kho với Lon/Cái lẻ. Thiết kế mô hình CSDL Entity Framework 6 với <code>ParentProductId</code> và <code>UnitMultiplier</code>, tự động quy đổi tồn kho khả dụng và trừ kho gốc lon lẻ khi phát sinh đơn hàng.</p>
+                    </div>
+
+                    <div class="solution-card">
+                        <h4><i class="fa-solid fa-sitemap"></i> Tái Cấu Trúc Thin Controller / Service Layer</h4>
+                        <p>Refactor hơn 10 Fat Controllers (>1.000 dòng code EF/SQL trực tiếp) về dạng Thin Controller. Đóng gói toàn bộ Business Logic vào tầng Service Layer qua Interface và Dependency Injection, tuân thủ nguyên lý Separation of Concerns (SoC).</p>
+                    </div>
+
+                    <div class="solution-card">
+                        <h4><i class="fa-solid fa-chart-line"></i> Async User Behavior Analytics (Non-blocking)</h4>
+                        <p>Xây dựng module ghi nhận log hành vi người dùng (SearchKeyword, Page Dwell Time, Rage Click) bất đồng bộ ngầm bằng <code>Task.Run</code> và Beacon API mà không gây nghẽn (Non-blocking) luồng xử lý trang web chính.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE WEBHOOK SIMULATOR (INTERACTIVE TOOL) -->
+    <section class="section container" id="simulator">
+        <div class="section-header">
+            <span class="section-tag">// INTERACTIVE DEMO TOOL</span>
+            <h2 class="section-title">Trải Nghiệm Live Webhook Gạch Nợ Tự Động</h2>
+        </div>
+
+        <div class="simulator-box">
+            <div class="sim-title">
+                <i class="fa-solid fa-bolt"></i> GIẢ LẬP GIAO DỊCH SEPAY WEBHOOK CHUYỂN KHOẢN NGÂN HÀNG
+            </div>
+            <div class="sim-form">
+                <input type="text" id="sim-order-id" class="sim-input" value="BHX8899" placeholder="Nhập Mã Đơn (ví dụ: BHX8899)">
+                <input type="number" id="sim-amount" class="sim-input" value="150000" placeholder="Số Tiền Chuyển (VNĐ)">
+                <button class="sim-btn" onclick="runWebhookSimulation()"><i class="fa-solid fa-play"></i> BẮT ĐẦU GIẢ LẬP GẠCH NỢ</button>
+            </div>
+            <div class="sim-console" id="sim-log">
+                // Nhấn "BẮT ĐẦU GIẢ LẬP GẠCH NỢ" để xem hệ thống thực thi luồng Webhook -> Regex Extract -> Auto Reconciliation -> Send Email Invoice...
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section class="section container" id="skills">
+        <div class="section-header">
+            <span class="section-tag">// KỸ NĂNG CHUYÊN MÔN</span>
+            <h2 class="section-title">Technical Skill Matrix</h2>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-group">
+                <div class="skill-group-title"><i class="fa-solid fa-code"></i> Backend & Core</div>
+                <div class="skill-list">
+                    <span class="skill-tag">C# (.NET)</span>
+                    <span class="skill-tag">ASP.NET MVC 5</span>
+                    <span class="skill-tag">.NET Core</span>
+                    <span class="skill-tag">LINQ</span>
+                    <span class="skill-tag">Async / Await</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & ORM</div>
+                <div class="skill-list">
+                    <span class="skill-tag">MS SQL Server</span>
+                    <span class="skill-tag">SSMS</span>
+                    <span class="skill-tag">Entity Framework 6</span>
+                    <span class="skill-tag">Code First / DbContext</span>
+                    <span class="skill-tag">Query Optimization</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Architecture & Integrations</div>
+                <div class="skill-list">
+                    <span class="skill-tag">Clean Architecture</span>
+                    <span class="skill-tag">Thin Controller Pattern</span>
+                    <span class="skill-tag">SePay VietQR Webhook</span>
+                    <span class="skill-tag">MoMo REST API</span>
+                    <span class="skill-tag">ASP.NET Identity 2.0</span>
+                    <span class="skill-tag">SMTP Invoice Mailer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION TIMELINE -->
+    <section class="section container">
+        <div class="section-header">
+            <span class="section-tag">// HÀNH TRÌNH & HỌC VẤN</span>
+            <h2 class="section-title">Education & Milestones</h2>
+        </div>
+
+        <div class="timeline-box">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-year">2022 - 2027 (Sinh viên năm cuối)</div>
+                    <div class="timeline-role">Cử nhân Công nghệ Thông tin (Kỹ thuật Phần mềm)</div>
+                    <div class="timeline-inst">Trường Đại học Ngoại ngữ - Tin học TP.HCM (HUFLIT) • GPA: 2.95 / 4.0</div>
+                    <p style="font-size: 13px; color: var(--text-muted);">Tập trung nghiên cứu Lập trình Hướng đối tượng (OOP), Cấu trúc Dữ liệu & Giải thuật, Hệ Quản trị CSDL SQL Server và Kiến trúc Phần mềm Backend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 12px;">Sẵn Sàng Đóng Góp Vào Đội Ngũ Của Bạn</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Hãy kết nối với tôi nếu bạn đang tìm kiếm một Intern / Junior .NET Backend Developer nhiệt huyết và có tư duy làm hệ thống thực chiến!</p>
+                
+                <div class="social-links">
+                    <a href="mailto:nguyenminhtan301205@gmail.com" class="btn-primary" onclick="copyEmail(event)"><i class="fa-solid fa-envelope"></i> nguyenminhtan301205@gmail.com</a>
+                    <a href="tel:0703342732" class="btn-secondary"><i class="fa-solid fa-phone"></i> 0703 342 732</a>
+                    <a href="https://github.com/NguyenTan33" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+
+            <p style="font-size: 12px; color: var(--text-dim); font-family: var(--font-mono);">
+                © 2026 Designed & Built by Nguyễn Minh Tân (.NET Backend Developer). Hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast">✓ Đã sao chép Email vào bộ nhớ tạm!</div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Typing Text Effect
+        const typingTexts = [".NET Backend Developer", "Clean Architecture Advocate", "SePay Webhook Integrator", "HUFLIT IT Senior Student"];
+        let textIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentText = typingTexts[textIdx];
+            const elem = document.getElementById("typing-text");
+            
+            if (isDeleting) {
+                elem.textContent = currentText.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                elem.textContent = currentText.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIdx === currentText.length) {
+                typeSpeed = 1800;
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                textIdx = (textIdx + 1) % typingTexts.length;
+                typeSpeed = 400;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+        typeEffect();
+
+        // Code Snippets for Terminal Tabs
+        const codeSnippets = [
+`// 1. SePayWebhookService.cs - Auto Payment Reconciliation
+public async Task<(bool Success, string Message, int OrderId)> ProcessWebhookAsync(SePayWebhookModel model)
+{
+    // Regex trích xuất mã đơn BHX từ nội dung chuyển khoản VietinBank
+    string searchContent = (model.content ?? "") + " " + (model.description ?? "");
+    int orderId = ExtractOrderId(searchContent); // BHX1234 -> OrderID 1234
+    
+    var order = await _dbContext.Order.FirstOrDefaultAsync(o => o.Id == orderId);
+    if (order == null) return (false, "Đơn hàng không tồn tại", 0);
+
+    // Gạch nợ tự động 24/7 không cần con người can thiệp
+    order.PaymentStatus = 1; // 1 = Đã Thanh Toán
+    await _dbContext.SaveChangesAsync();
+
+    // Gửi Email hóa đơn HTML tự động
+    OrderInvoiceEmailService.SendOrderConfirmationEmail(order, order.User.Email);
+    return (true, $"[GẠCH NỢ THÀNH CÔNG] Đơn #{orderId}!", orderId);
+}`,
+`// 2. OrderCheckoutService.cs - Thin Controller & Service Layer Pattern
+public async Task<(Cart CartData, List<UserAddress> Addresses, List<VoucherResult> Vouchers)> 
+GetCheckoutDataAsync(string userId, string selectedIds, string coupon)
+{
+    var cart = _cartService.GetCartByUserId(userId);
+    var userAddresses = await _dbContext.UserAddresses
+        .Where(a => a.UserId == userId).OrderByDescending(a => a.IsDefault).ToListAsync();
+
+    // Đánh giá Smart Voucher Engine theo giỏ hàng thực tế
+    var suggestedVouchers = _voucherService.GetSuggestedVouchersForCart(cart.CartDetails, userId);
+
+    return (cart, userAddresses, suggestedVouchers);
+}`,
+`// 3. ProductSalesBOM.cs - Multi-Unit Conversion & Parent Stock Hierarchy
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; } // Lon Coca-Cola lẻ vs Thùng 24 lon
+    public int? ParentProductId { get; set; } // Con trỏ về sản phẩm mẹ (Lon lẻ)
+    public int UnitMultiplier { get; set; } = 1; // Thùng = 24
+
+    [NotMapped]
+    public int AvailableStock => ParentProductId.HasValue && ParentProduct != null 
+        ? ParentProduct.Quantity / (UnitMultiplier > 0 ? UnitMultiplier : 1) 
+        : Quantity;
+}`
+        ];
+
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            document.getElementById('code-content').innerHTML = `<pre><code>${formatCode(codeSnippets[index])}</code></pre>`;
+        }
+
+        function formatCode(code) {
+            return code
+                .replace(/\/\/.*/g, '<span class="code-comment">$&</span>')
+                .replace(/(public|async|Task|string|int|bool|var|await|return|class|if|new)/g, '<span class="code-keyword">$1</span>')
+                .replace(/(ProcessWebhookAsync|ExtractOrderId|FirstOrDefaultAsync|SaveChangesAsync|SendOrderConfirmationEmail|GetCheckoutDataAsync)/g, '<span class="code-func">$1</span>');
+        }
+
+        switchTab(0);
+
+        // Webhook Simulator Log Execution
+        function runWebhookSimulation() {
+            const orderId = document.getElementById('sim-order-id').value || "BHX8899";
+            const amount = parseInt(document.getElementById('sim-amount').value) || 150000;
+            const logBox = document.getElementById('sim-log');
+
+            logBox.innerHTML = `<span style="color:#38bdf8;">[${new Date().toLocaleTimeString()}] [WEBHOOK INCOMING] Received POST from SePay Webhook Server...</span><br>`;
+            
+            setTimeout(() => {
+                logBox.innerHTML += `<span style="color:#fbbf24;">[${new Date().toLocaleTimeString()}] [PAYLOAD PARSED] TransferAmount: ${amount.toLocaleString()}đ | Content: "CHUYEN TIEN THANH TOAN DON HANG ${orderId}"</span><br>`;
+            }, 600);
+
+            setTimeout(() => {
+                logBox.innerHTML += `<span style="color:#a78bfa;">[${new Date().toLocaleTimeString()}] [REGEX MATCHED] Extracted OrderID: ${orderId.replace(/\D/g, '') || 8899} from content string.</span><br>`;
+            }, 1200);
+
+            setTimeout(() => {
+                logBox.innerHTML += `<span style="color:#34d399; font-weight:bold;">[${new Date().toLocaleTimeString()}] [AUTO RECONCILED SUCCESS] Order #${orderId.replace(/\D/g, '') || 8899} set PaymentStatus = 1 (PAID VIA VIETQR).</span><br>`;
+            }, 1800);
+
+            setTimeout(() => {
+                logBox.innerHTML += `<span style="color:#60a5fa;">[${new Date().toLocaleTimeString()}] [SMTP EMAIL SENT] HTML Invoice & Receipt dispatched to Customer.</span><br>`;
+            }, 2400);
+        }
+
+        // Copy Email Toast
+        function copyEmail(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText("nguyenminhtan301205@gmail.com");
+            const toast = document.getElementById("toast");
+            toast.style.display = "block";
+            setTimeout(() => { toast.style.display = "none"; }, 3000);
+        }
+    </script>
+</body>
+</html>
