@@ -193,7 +193,7 @@ body::before {
 
 /* HERO SECTION */
 .hero {
-    padding: 85px 0 50px;
+    padding: 105px 0 50px;
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 36px;
@@ -797,7 +797,7 @@ body::before {
     .hero {
         grid-template-columns: 1fr;
         gap: 28px;
-        padding-top: 75px;
+        padding-top: 100px;
         text-align: center;
     }
     .hero-status {
@@ -824,7 +824,7 @@ body::before {
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 70px;
+        padding-top: 95px;
     }
     .nav-menu {
         position: fixed;
@@ -905,4 +905,9 @@ body::before {
         padding: 10px;
         font-size: 10px;
     }
+}
+
+/* Fix Anchor Scroll Overlap */
+section[id] {
+    scroll-margin-top: 75px;
 }
