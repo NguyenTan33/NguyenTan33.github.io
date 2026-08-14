@@ -912,9 +912,10 @@ section[id] {
     scroll-margin-top: 75px;
 }
 
-/* Guaranteed Header Spacer Element */
+
+/* Guaranteed Header Spacer Element with Safe Area Inset Support */
 .header-spacer {
-    height: 80px;
+    height: 110px;
     width: 100%;
     display: block;
     clear: both;
@@ -922,12 +923,18 @@ section[id] {
 
 @media (max-width: 992px) {
     .header-spacer {
-        height: 85px;
+        height: 125px;
     }
 }
 
 @media (max-width: 768px) {
     .header-spacer {
-        height: 90px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-spacer {
+        height: 150px;
     }
 }
