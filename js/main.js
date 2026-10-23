@@ -1,158 +1,315 @@
 /* 
-   NGUYỄN MINH TÂN - .NET BACKEND DEVELOPER PORTFOLIO
-   Interactive Script
+   ==========================================================================
+   NGUYEN MINH TAN - .NET BACKEND & FULLSTACK ARCHITECT
+   FUTURISTIC HIGH-TECH PORTFOLIO & INTERACTION ENGINE
+   ==========================================================================
 */
 
 document.addEventListener('DOMContentLoaded', function() {
     initTypingEffect();
-    switchCodeTab(0);
+    initCatalogFilters();
     initNavToggle();
     initScrollSpy();
+    initTerminalTabs();
 });
 
-const typingTexts = [
-    ".NET Backend Developer", 
-    "Clean Architecture Advocate", 
-    "SePay Webhook Integrator", 
-    "HUFLIT IT Senior Student"
+/* --------------------------------------------------------------------------
+   1. TYPING EFFECT (HERO SECTION)
+   -------------------------------------------------------------------------- */
+const typingPhrases = [
+    ".NET 8 & ASP.NET Core Specialist",
+    "Clean Architecture & DDD Practitioner",
+    "Offline-First SQLite & Delta-Sync Architect",
+    "Google Gemini Pro AI RAG Integrator",
+    "VietQR SePay Webhook Auto-Reconciliation",
+    "HUFLIT Software Engineering Final-Year"
 ];
 
-let textIdx = 0;
-let charIdx = 0;
-let isDeleting = false;
+let phraseIdx = 0;
+let letterIdx = 0;
+let isRemoving = false;
 
 function initTypingEffect() {
-    const elem = document.getElementById("typing-text");
-    if (!elem) return;
+    const targetElem = document.getElementById("typing-text");
+    if (!targetElem) return;
 
-    const currentText = typingTexts[textIdx];
+    const currentPhrase = typingPhrases[phraseIdx];
     
-    if (isDeleting) {
-        elem.textContent = currentText.substring(0, charIdx - 1);
-        charIdx--;
+    if (isRemoving) {
+        targetElem.textContent = currentPhrase.substring(0, letterIdx - 1);
+        letterIdx--;
     } else {
-        elem.textContent = currentText.substring(0, charIdx + 1);
-        charIdx++;
+        targetElem.textContent = currentPhrase.substring(0, letterIdx + 1);
+        letterIdx++;
     }
 
-    let typeSpeed = isDeleting ? 35 : 75;
+    let speed = isRemoving ? 30 : 65;
 
-    if (!isDeleting && charIdx === currentText.length) {
-        typeSpeed = 1800;
-        isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-        isDeleting = false;
-        textIdx = (textIdx + 1) % typingTexts.length;
-        typeSpeed = 400;
+    if (!isRemoving && letterIdx === currentPhrase.length) {
+        speed = 2000;
+        isRemoving = true;
+    } else if (isRemoving && letterIdx === 0) {
+        isRemoving = false;
+        phraseIdx = (phraseIdx + 1) % typingPhrases.length;
+        speed = 400;
     }
 
-    setTimeout(initTypingEffect, typeSpeed);
+    setTimeout(initTypingEffect, speed);
 }
 
-const codeSnippets = [
-`// 1. SePayWebhookService.cs - Auto Payment Reconciliation 24/7
-public async Task<(bool Success, string Message, int OrderId)> ProcessWebhookAsync(SePayWebhookModel model)
-{
-    // Regex trích xuất mã đơn BHX từ nội dung chuyển khoản VietinBank
-    string searchContent = (model.content ?? "") + " " + (model.description ?? "");
-    int orderId = ExtractOrderId(searchContent); // BHX1234 -> OrderID 1234
-    
-    var order = await _dbContext.Order.FirstOrDefaultAsync(o => o.Id == orderId);
-    if (order == null) return (false, "Đơn hàng không tồn tại", 0);
+/* --------------------------------------------------------------------------
+   2. HERO TERMINAL TABS (INTERACTIVE CODE SWITCHER)
+   -------------------------------------------------------------------------- */
+const terminalCodeSnippets = {
+    webhook: `
+<div class="terminal-line"><span class="t-num">01</span><span><span class="t-comment">// 1. Tự động gạch nợ ngân hàng trong 2-3s</span></span></div>
+<div class="terminal-line"><span class="t-num">02</span><span><span class="t-key">public async</span> <span class="t-type">Task</span>&lt;<span class="t-type">OrderResult</span>&gt; <span class="t-func">ProcessWebhookAsync</span>(<span class="t-type">SePayWebhookDto</span> dto)</span></div>
+<div class="terminal-line"><span class="t-num">03</span><span>{</span></div>
+<div class="terminal-line"><span class="t-num">04</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">var</span> orderId = <span class="t-func">ExtractOrderId</span>(dto.Content); <span class="t-comment">// Regex /(BHX\\d+)/i</span></span></div>
+<div class="terminal-line"><span class="t-num">05</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">var</span> order = <span class="t-key">await</span> _dbContext.Orders.<span class="t-func">FindAsync</span>(orderId);</span></div>
+<div class="terminal-line"><span class="t-num">06</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">if</span> (order == <span class="t-key">null</span> || order.PaymentStatus == <span class="t-type">Paid</span>) <span class="t-key">return</span>;</span></div>
+<div class="terminal-line"><span class="t-num">07</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-comment">// Cập nhật trạng thái + Trừ kho Sales BOM đa đơn vị</span></span></div>
+<div class="terminal-line"><span class="t-num">08</span><span>&nbsp;&nbsp;&nbsp;&nbsp;order.PaymentStatus = <span class="t-type">PaymentStatus</span>.<span class="t-func">Paid</span>;</span></div>
+<div class="terminal-line"><span class="t-num">09</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> _inventoryService.<span class="t-func">DeductStockAsync</span>(order.Items);</span></div>
+<div class="terminal-line"><span class="t-num">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> _emailService.<span class="t-func">SendInvoiceHtmlAsync</span>(order);</span></div>
+<div class="terminal-line"><span class="t-num">11</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">return</span> <span class="t-type">OrderResult</span>.<span class="t-func">Success</span>(orderId);</span></div>
+<div class="terminal-line"><span class="t-num">12</span><span>}</span></div>`,
 
-    // Gạch nợ tự động 24/7 không cần con người can thiệp
-    order.PaymentStatus = 1; // 1 = Đã Thanh Toán
-    await _dbContext.SaveChangesAsync();
+    cleanarch: `
+<div class="terminal-line"><span class="t-num">01</span><span><span class="t-comment">// 2. Clean Architecture CQRS Command Handler</span></span></div>
+<div class="terminal-line"><span class="t-num">02</span><span><span class="t-key">public class</span> <span class="t-type">CreateDeclarationCommandHandler</span> : <span class="t-type">IRequestHandler</span>&lt;<span class="t-type">CreateCmd</span>, <span class="t-type">Guid</span>&gt;</span></div>
+<div class="terminal-line"><span class="t-num">03</span><span>{</span></div>
+<div class="terminal-line"><span class="t-num">04</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">private readonly</span> <span class="t-type">IDeclarationRepository</span> _repository;</span></div>
+<div class="terminal-line"><span class="t-num">05</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">public</span> <span class="t-func">CreateDeclarationCommandHandler</span>(<span class="t-type">IDeclarationRepository</span> repo)</span></div>
+<div class="terminal-line"><span class="t-num">06</span><span>&nbsp;&nbsp;&nbsp;&nbsp;{ _repository = repo; }</span></div>
+<div class="terminal-line"><span class="t-num">07</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">public async</span> <span class="t-type">Task</span>&lt;<span class="t-type">Guid</span>&gt; <span class="t-func">Handle</span>(<span class="t-type">CreateCmd</span> cmd, <span class="t-type">CancellationToken</span> ct)</span></div>
+<div class="terminal-line"><span class="t-num">08</span><span>&nbsp;&nbsp;&nbsp;&nbsp;{</span></div>
+<div class="terminal-line"><span class="t-num">09</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">var</span> entity = <span class="t-type">CustomsDeclaration</span>.<span class="t-func">Create</span>(cmd.Code, cmd.Vessel);</span></div>
+<div class="terminal-line"><span class="t-num">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> _repository.<span class="t-func">AddAsync</span>(entity, ct);</span></div>
+<div class="terminal-line"><span class="t-num">11</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">return</span> entity.Id;</span></div>
+<div class="terminal-line"><span class="t-num">12</span><span>&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+<div class="terminal-line"><span class="t-num">13</span><span>}</span></div>`,
 
-    // Gửi Email hóa đơn HTML tự động
-    OrderInvoiceEmailService.SendOrderConfirmationEmail(order, order.User.Email);
-    return (true, $"[GẠCH NỢ THÀNH CÔNG] Đơn #{orderId}!", orderId);
-}`,
-`// 2. OrderCheckoutService.cs - Thin Controller & Service Layer Pattern
-public async Task<(Cart CartData, List<UserAddress> Addresses, List<VoucherResult> Vouchers)> 
-GetCheckoutDataAsync(string userId, string selectedIds, string coupon)
-{
-    var cart = _cartService.GetCartByUserId(userId);
-    var userAddresses = await _dbContext.UserAddresses
-        .Where(a => a.UserId == userId).OrderByDescending(a => a.IsDefault).ToListAsync();
+    offlinesync: `
+<div class="terminal-line"><span class="t-num">01</span><span><span class="t-comment">// 3. SQLite Offline-First AutoSync Engine</span></span></div>
+<div class="terminal-line"><span class="t-num">02</span><span><span class="t-key">export async function</span> <span class="t-func">syncOutboxQueue</span>(): <span class="t-type">Promise</span>&lt;<span class="t-type">void</span>&gt; {</span></div>
+<div class="terminal-line"><span class="t-num">03</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">const</span> pendingEvents = <span class="t-key">await</span> db.<span class="t-func">getAllFromOutbox</span>();</span></div>
+<div class="terminal-line"><span class="t-num">04</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">if</span> (!pendingEvents.length) <span class="t-key">return</span>;</span></div>
+<div class="terminal-line"><span class="t-num">05</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+<div class="terminal-line"><span class="t-num">06</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-comment">// Push batch to .NET 8 Backend Gateway</span></span></div>
+<div class="terminal-line"><span class="t-num">07</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">const</span> res = <span class="t-key">await</span> api.<span class="t-func">post</span>(<span class="t-str">'/api/sync/delta-push'</span>, pendingEvents);</span></div>
+<div class="terminal-line"><span class="t-num">08</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">if</span> (res.data.success) {</span></div>
+<div class="terminal-line"><span class="t-num">09</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> db.<span class="t-func">markOutboxResolved</span>(res.data.syncedIds);</span></div>
+<div class="terminal-line"><span class="t-num">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> <span class="t-func">pullLatestCourseDeltas</span>(res.data.lastSeq);</span></div>
+<div class="terminal-line"><span class="t-num">11</span><span>&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+<div class="terminal-line"><span class="t-num">12</span><span>}</span></div>`
+};
 
-    // Đánh giá Smart Voucher Engine theo giỏ hàng thực tế
-    var suggestedVouchers = _voucherService.GetSuggestedVouchersForCart(cart.CartDetails, userId);
+function initTerminalTabs() {
+    const tabBtns = document.querySelectorAll('.terminal-tab-btn');
+    const terminalBody = document.getElementById('terminal-code-body');
 
-    return (cart, userAddresses, suggestedVouchers);
-}`,
-`// 3. ProductSalesBOM.cs - Multi-Unit Conversion & Parent Stock Hierarchy
-public class Product
-{
-    public int Id { get; set; }
-    public string Name { get; set; } // Lon Coca-Cola lẻ vs Thùng 24 lon
-    public int? ParentProductId { get; set; } // Con trỏ về sản phẩm mẹ (Lon lẻ)
-    public int UnitMultiplier { get; set; } = 1; // Thùng = 24
+    if (!tabBtns.length || !terminalBody) return;
 
-    [NotMapped]
-    public int AvailableStock => ParentProductId.HasValue && ParentProduct != null 
-        ? ParentProduct.Quantity / (UnitMultiplier > 0 ? UnitMultiplier : 1) 
-        : Quantity;
-}`
-];
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
 
-function switchCodeTab(index) {
-    const tabs = document.querySelectorAll('.tab-btn');
-    tabs.forEach((tab, i) => {
-        tab.classList.toggle('active', i === index);
+            const tabKey = this.getAttribute('data-tab');
+            if (terminalCodeSnippets[tabKey]) {
+                terminalBody.innerHTML = terminalCodeSnippets[tabKey].trim();
+            }
+        });
     });
+}
+
+/* --------------------------------------------------------------------------
+   3. CATALOG MARKETPLACE FILTER (ĐA NỀN TẢNG, THƯƠNG MẠI, ERP, DESKTOP, EDUCATION)
+   -------------------------------------------------------------------------- */
+function initCatalogFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    if (!filterButtons.length || !productCards.length) return;
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            productCards.forEach(card => {
+                const categories = (card.getAttribute('data-category') || '').split(' ');
+                
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 250);
+                }
+            });
+        });
+    });
+}
+
+/* --------------------------------------------------------------------------
+   4. YOUTUBE VIDEO DEMO MODAL (CINEMA MODE)
+   -------------------------------------------------------------------------- */
+function openVideoModal(youtubeUrl, projectTitle) {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-modal-iframe');
+    const frameContainer = document.getElementById('video-frame-container');
+    const titleElem = document.getElementById('video-modal-title');
+    const noticeElem = document.getElementById('video-modal-notice');
     
-    const contentBox = document.getElementById('code-content');
-    if (contentBox) {
-        contentBox.innerHTML = `<pre><code>${formatCode(codeSnippets[index])}</code></pre>`;
+    if (!modal) return;
+
+    if (titleElem) {
+        titleElem.innerHTML = `<i class="fa-brands fa-youtube"></i> ${projectTitle || 'Demo Dự Án'}`;
+    }
+
+    let embedUrl = (youtubeUrl || '').trim();
+    if (embedUrl) {
+        if (embedUrl.includes('watch?v=')) {
+            const videoId = embedUrl.split('watch?v=')[1].split('&')[0];
+            embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        } else if (embedUrl.includes('youtu.be/')) {
+            const videoId = embedUrl.split('youtu.be/')[1].split('?')[0];
+            embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        } else if (!embedUrl.includes('autoplay=') && embedUrl.startsWith('http')) {
+            embedUrl += (embedUrl.includes('?') ? '&autoplay=1' : '?autoplay=1');
+        }
+    }
+
+    const hasValidVideo = embedUrl && embedUrl !== '#' && embedUrl.startsWith('http') && !embedUrl.includes('YOUR_VIDEO_ID');
+
+    if (hasValidVideo) {
+        if (iframe) iframe.src = embedUrl;
+        if (frameContainer) frameContainer.style.display = 'block';
+        if (noticeElem) noticeElem.style.display = 'none';
+    } else {
+        if (iframe) iframe.src = '';
+        if (frameContainer) frameContainer.style.display = 'none';
+        if (noticeElem) {
+            noticeElem.innerHTML = `
+                <div class="notice-content">
+                    <i class="fa-brands fa-youtube notice-icon"></i>
+                    <div class="notice-title">Hiện chưa có video khả dụng đang được admin cập nhật</div>
+                    <button type="button" onclick="closeVideoModal()" class="btn btn-secondary btn-sm" style="margin-top: 20px;">
+                        <i class="fa-solid fa-xmark"></i> Đóng
+                    </button>
+                </div>
+            `;
+            noticeElem.style.display = 'flex';
+        }
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-modal-iframe');
+    const frameContainer = document.getElementById('video-frame-container');
+    const noticeElem = document.getElementById('video-modal-notice');
+
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    if (iframe) {
+        iframe.src = '';
+    }
+    if (frameContainer) {
+        frameContainer.style.display = 'none';
+    }
+    if (noticeElem) {
+        noticeElem.style.display = 'none';
     }
 }
 
-function formatCode(code) {
-    return code
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(/\/\/.*/g, '<span class="code-comment">$&</span>')
-        .replace(/(public|async|Task|string|int|bool|var|await|return|class|if|new)/g, '<span class="code-keyword">$1</span>')
-        .replace(/(ProcessWebhookAsync|ExtractOrderId|FirstOrDefaultAsync|SaveChangesAsync|SendOrderConfirmationEmail|GetCheckoutDataAsync)/g, '<span class="code-func">$1</span>');
-}
-
-function runWebhookSimulation() {
-    const orderInput = document.getElementById('sim-order-id');
-    const amountInput = document.getElementById('sim-amount');
-    const logBox = document.getElementById('sim-log');
-
-    const orderId = orderInput ? (orderInput.value || "BHX8899") : "BHX8899";
-    const amount = amountInput ? (parseInt(amountInput.value) || 150000) : 150000;
-
-    logBox.innerHTML = `<span style="color:#38bdf8;">[${new Date().toLocaleTimeString()}] [WEBHOOK INCOMING] Received POST request from SePay Gateway...</span><br>`;
+/* --------------------------------------------------------------------------
+   5. CONSULTATION & ORDER MODAL
+   -------------------------------------------------------------------------- */
+function openOrderModal(serviceName) {
+    const modal = document.getElementById("order-modal");
+    const serviceSelect = document.getElementById("modal-service-select");
     
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#fbbf24;">[${new Date().toLocaleTimeString()}] [PAYLOAD PARSED] TransferAmount: ${amount.toLocaleString()}đ | Content: "CHUYEN TIEN THANH TOAN DON HANG ${orderId}"</span><br>`;
-    }, 600);
+    if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
 
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#a78bfa;">[${new Date().toLocaleTimeString()}] [REGEX MATCHED] Extracted OrderID: ${orderId.replace(/\D/g, '') || 8899} from transaction text.</span><br>`;
-    }, 1200);
-
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#34d399; font-weight:bold;">[${new Date().toLocaleTimeString()}] [AUTO RECONCILED SUCCESS] Order #${orderId.replace(/\D/g, '') || 8899} PaymentStatus = 1 (PAID VIA VIETQR).</span><br>`;
-    }, 1800);
-
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#60a5fa;">[${new Date().toLocaleTimeString()}] [SMTP EMAIL SENT] HTML Invoice & Receipt dispatched to Customer.</span><br>`;
-    }, 2400);
+    if (serviceSelect && serviceName) {
+        serviceSelect.value = serviceName;
+    }
 }
 
+function closeOrderModal() {
+    const modal = document.getElementById("order-modal");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Global modal listeners (Escape & Outside click)
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeOrderModal();
+        closeVideoModal();
+    }
+});
+
+window.addEventListener('click', function(e) {
+    const orderModal = document.getElementById("order-modal");
+    const videoModal = document.getElementById("video-modal");
+    if (e.target === orderModal) closeOrderModal();
+    if (e.target === videoModal) closeVideoModal();
+});
+
+/* --------------------------------------------------------------------------
+   6. COPY EMAIL & QUICK ACTIONS
+   -------------------------------------------------------------------------- */
 function copyEmail(e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("nguyenminhtan301205@gmail.com");
-    const toast = document.getElementById("toast");
-    if (toast) {
-        toast.style.display = "block";
-        setTimeout(() => { toast.style.display = "none"; }, 3000);
-    }
+    if (e) e.preventDefault();
+    const email = "nguyenminhtan301205@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        showToast("Đã sao chép email: " + email);
+    }).catch(() => {
+        showToast("Email: " + email);
+    });
 }
 
+function showToast(message) {
+    let toast = document.getElementById("toast");
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast";
+        toast.className = "toast-msg";
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color:#10b981;"></i> ${message}`;
+    toast.style.display = "flex";
+
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 3500);
+}
+
+/* --------------------------------------------------------------------------
+   7. MOBILE NAVIGATION TOGGLE
+   -------------------------------------------------------------------------- */
 function initNavToggle() {
     const toggleBtn = document.getElementById('nav-toggle-btn');
     const navMenu = document.getElementById('nav-menu');
@@ -181,23 +338,28 @@ function initNavToggle() {
     }
 }
 
+/* --------------------------------------------------------------------------
+   8. SCROLL SPY FOR NAVBAR ACTIVE LINK
+   -------------------------------------------------------------------------- */
 function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {
-        let current = '';
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 120;
+
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
+            const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
             }
         });
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
                 link.classList.add('active');
             }
         });

@@ -3,1098 +3,779 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Nguyễn Minh Tân | .NET Backend Developer Portfolio</title>
-    <meta name="description" content="Portfolio cá nhân của Nguyễn Minh Tân - .NET Backend Developer. Chuyên môn: ASP.NET MVC 5, Entity Framework 6, Clean Architecture, VietQR SePay Webhook & SQL Server.">
+    <title>Nguyễn Minh Tân | .NET Backend & Fullstack Architect | Product Showcase & Portfolio</title>
+    <meta name="description" content="Portfolio cá nhân của Nguyễn Minh Tân - Kỹ sư phần mềm chuyên sâu .NET 8, Clean Architecture, VietQR SePay Webhook gạch nợ tự động, Offline-First SQLite và AI RAG.">
+    <meta name="keywords" content="Nguyen Minh Tan, .NET Developer, C# Backend, ASP.NET Core, Clean Architecture, VietQR Webhook, SePay, Microlearning, HUFLIT">
+    <meta name="author" content="Nguyễn Minh Tân">
+    
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Nguyễn Minh Tân | .NET Backend & Fullstack Architect">
+    <meta property="og:description" content="Khám phá các sản phẩm phần mềm thực chiến: Microlearning, E-Commerce, Web Xuất Nhập Khẩu, ERP F&B, Web Quản Lý Khách Sạn và Desktop Apps.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nguyentan33.github.io">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome Icons 6.5.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Embedded CSS for 100% Instant Guarantee -->
-    <style>
-/* 
-   NGUYỄN MINH TÂN - .NET BACKEND DEVELOPER PORTFOLIO
-   Perfect Mobile-First & Desktop UI/UX System
-*/
-
-:root {
-    --bg-void: #07090e;
-    --bg-sec-alt: #0c101b;
-    --bg-card: #111726;
-    --bg-card-hover: #172033;
-    --bg-terminal: #090d16;
-    --bg-header: rgba(7, 9, 14, 0.92);
-    
-    --accent-cyan: #38bdf8;
-    --accent-blue: #2563eb;
-    --accent-purple: #8b5cf6;
-    --accent-green: #10b981;
-    --accent-amber: #f59e0b;
-    --accent-red: #ef4444;
-    
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --text-dim: #64748b;
-    
-    --border-glass: rgba(56, 189, 248, 0.18);
-    --border-glass-hover: rgba(56, 189, 248, 0.4);
-    --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
-    --shadow-glow-purple: 0 0 25px rgba(139, 92, 246, 0.25);
-    
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'Fira Code', monospace;
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg-void);
-}
-::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 4px;
-    border: 1px solid var(--border-glass);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-cyan);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-html, body {
-    width: 100%;
-    overflow-x: hidden !important;
-}
-
-body {
-    background-color: var(--bg-void);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    background-image: 
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 55%),
-        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 45%);
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-
-/* Scanline Overlay */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.01));
-    background-size: 100% 3px, 3px 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.3;
-}
-
-.container {
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: var(--bg-header);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-glass);
-    height: 60px;
-    display: flex;
-    align-items: center;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    font-family: var(--font-mono);
-    font-size: clamp(14px, 2.5vw, 16.5px);
-    font-weight: 700;
-    color: var(--text-main);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-}
-
-.logo .accent {
-    color: var(--accent-cyan);
-}
-
-.nav-right-mobile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 22px;
-    list-style: none;
-    align-items: center;
-}
-
-.nav-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13.5px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--accent-cyan);
-}
-
-.btn-cv {
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-    color: #fff !important;
-    padding: 6px 14px;
-    border-radius: var(--radius-sm);
-    font-size: 12.5px;
-    font-weight: 600 !important;
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-}
-
-.btn-cv:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-}
-
-/* Mobile Nav Toggle */
-.nav-toggle {
-    display: none;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid var(--border-glass);
-    color: var(--accent-cyan);
-    font-size: 16px;
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-}
-
-/* HERO SECTION */
-.hero {
-    padding: 20px 0 50px;
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 36px;
-    align-items: center;
-}
-
-.hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.35);
-    padding: 5px 12px;
-    border-radius: 30px;
-    font-size: 11.5px;
-    font-weight: 600;
-    color: var(--accent-green);
-    margin-bottom: 16px;
-    font-family: var(--font-mono);
-}
-
-.pulse-dot {
-    width: 7px;
-    height: 7px;
-    background-color: var(--accent-green);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--accent-green);
-    animation: pulse 1.8s infinite;
-    flex-shrink: 0;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-.hero-subhead {
-    font-size: clamp(14px, 1.8vw, 16px);
-    color: var(--text-muted);
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.hero-heading {
-    font-size: clamp(26px, 3.8vw, 44px);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-title-box {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-family: var(--font-mono);
-    font-size: clamp(12.5px, 1.8vw, 14.5px);
-    color: var(--accent-cyan);
-    margin-bottom: 16px;
-    max-width: 100%;
-}
-
-.hero-desc {
-    font-size: clamp(13px, 1.5vw, 15px);
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    line-height: 1.6;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 13.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-glow-purple);
-    white-space: nowrap;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.45);
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-glass);
-    color: var(--text-main);
-    padding: 10px 20px;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 13.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
-}
-
-/* HERO STATS GRID */
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border-glass);
-}
-
-.stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    padding: 10px 6px;
-    border-radius: var(--radius-md);
-    text-align: center;
-}
-
-.stat-num {
-    font-family: var(--font-mono);
-    font-size: clamp(15px, 2.2vw, 19px);
-    font-weight: 700;
-    color: var(--accent-cyan);
-}
-
-.stat-label {
-    font-size: 9px;
-    color: var(--text-muted);
-    margin-top: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
-/* TERMINAL WIDGET */
-.terminal-box {
-    background: var(--bg-terminal);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-glow);
-    width: 100%;
-}
-
-.terminal-header {
-    background: #111624;
-    padding: 9px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-glass);
-}
-
-.terminal-dots {
-    display: flex;
-    gap: 6px;
-}
-
-.dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-}
-
-.dot-red { background: var(--accent-red); }
-.dot-yellow { background: var(--accent-amber); }
-.dot-green { background: var(--accent-green); }
-
-.terminal-title {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-muted);
-}
-
-.terminal-tabs {
-    display: flex;
-    background: #0d121f;
-    border-bottom: 1px solid var(--border-glass);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-.tab-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-right: 1px solid var(--border-glass);
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.tab-btn.active {
-    background: var(--bg-terminal);
-    color: var(--accent-cyan);
-    border-bottom: 2px solid var(--accent-cyan);
-}
-
-.terminal-body {
-    padding: 14px;
-    font-family: var(--font-mono);
-    font-size: clamp(10px, 1.3vw, 12px);
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 330px;
-}
-
-.code-keyword { color: #f472b6; }
-.code-type { color: #38bdf8; }
-.code-func { color: #60a5fa; }
-.code-str { color: #34d399; }
-.code-comment { color: #64748b; font-style: italic; }
-.code-var { color: #fbbf24; }
-
-/* SECTIONS */
-.section {
-    padding: 60px 0;
-}
-
-.section-alt {
-    background-color: var(--bg-sec-alt);
-    border-top: 1px solid var(--border-glass);
-    border-bottom: 1px solid var(--border-glass);
-}
-
-.section-header {
-    margin-bottom: 36px;
-    text-align: center;
-}
-
-.section-tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--accent-cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 4px;
-    display: inline-block;
-}
-
-.section-title {
-    font-size: clamp(20px, 2.8vw, 28px);
-    font-weight: 700;
-    color: var(--text-main);
-}
-
-/* PROJECT FEATURED CARD */
-.project-featured {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.project-head {
-    padding: 20px;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(139, 92, 246, 0.12));
-    border-bottom: 1px solid var(--border-glass);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-}
-
-.project-badge {
-    background: rgba(56, 189, 248, 0.15);
-    color: var(--accent-cyan);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 3px 10px;
-    border-radius: 4px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 600;
-}
-
-.project-name {
-    font-size: clamp(17px, 2.2vw, 22px);
-    font-weight: 800;
-    color: #fff;
-    margin-top: 4px;
-}
-
-.project-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.btn-link {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--border-glass);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
-}
-
-.btn-link:hover {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
-}
-
-.project-body {
-    padding: 20px;
-}
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-}
-
-.solution-card {
-    background: var(--bg-terminal);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-md);
-    padding: 16px;
-}
-
-.solution-card h4 {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--accent-cyan);
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.solution-card p {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.55;
-}
-
-/* LIVE WEBHOOK SIMULATOR WIDGET */
-.simulator-box {
-    background: #080c16;
-    border: 1px dashed var(--accent-cyan);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    margin-top: 24px;
-}
-
-.sim-title {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--accent-green);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.sim-form {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-}
-
-.sim-input {
-    flex: 1;
-    min-width: 140px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    color: var(--text-main);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    padding: 8px 12px;
-    border-radius: var(--radius-sm);
-    outline: none;
-}
-
-.sim-btn {
-    background: var(--accent-green);
-    color: #000;
-    border: none;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.sim-btn:hover {
-    opacity: 0.9;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-}
-
-.sim-console {
-    background: #04060a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-sm);
-    padding: 12px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: #34d399;
-    min-height: 100px;
-    line-height: 1.65;
-}
-
-/* SKILLS MATRIX */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-}
-
-.skill-group {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    transition: all 0.3s ease;
-}
-
-.skill-group:hover {
-    border-color: var(--accent-purple);
-    transform: translateY(-3px);
-}
-
-.skill-group-title {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--accent-purple);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.skill-tag {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--text-main);
-    font-size: 11px;
-    padding: 4px 9px;
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-}
-
-/* TIMELINE */
-.timeline-box {
-    position: relative;
-    padding-left: 24px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.timeline-box::before {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -24px;
-    top: 4px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--accent-cyan);
-    border: 2px solid var(--bg-void);
-    box-shadow: 0 0 8px var(--accent-cyan);
-}
-
-.timeline-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-md);
-    padding: 16px;
-}
-
-.timeline-year {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--accent-cyan);
-    margin-bottom: 3px;
-}
-
-.timeline-role {
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 2px;
-}
-
-.timeline-inst {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-}
-
-/* FOOTER & CONTACT */
-.footer {
-    border-top: 1px solid var(--border-glass);
-    padding: 40px 0 24px;
-    text-align: center;
-    background: rgba(5, 7, 11, 0.95);
-}
-
-.contact-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius-lg);
-    padding: 28px 16px;
-    max-width: 680px;
-    margin: 0 auto 30px;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-}
-
-.toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--accent-green);
-    color: #000;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 9px 18px;
-    border-radius: var(--radius-md);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 10000;
-}
-
-/* ==========================================================================
-   MOBILE-FIRST OPTIMIZED RESPONSIVE BREAKPOINTS
-   ========================================================================== */
-
-@media (max-width: 992px) {
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding-top: 20px;
-        text-align: center;
-    }
-    .hero-status {
-        margin: 0 auto 14px;
-    }
-    .hero-title-box {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-actions {
-        justify-content: center;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 20px;
-    }
-    .nav-menu {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(9, 13, 22, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border-glass);
-        flex-direction: column;
-        padding: 16px;
-        gap: 14px;
-        transform: translateY(-160%);
-        transition: transform 0.3s ease;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-    }
-    .nav-menu.active {
-        transform: translateY(0);
-    }
-    .nav-toggle {
-        display: block;
-    }
-    .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    .project-head {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .project-links {
-        width: 100%;
-    }
-    .btn-link {
-        flex: 1;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .container {
-        padding: 0 12px;
-    }
-    .section {
-        padding: 45px 0;
-    }
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        justify-content: center;
-    }
-    .sim-form {
-        flex-direction: column;
-    }
-    .sim-btn {
-        width: 100%;
-    }
-    .social-links {
-        flex-direction: column;
-    }
-    .social-links a {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 380px) {
-    .hero-stats {
-        grid-template-columns: 1fr;
-    }
-    .terminal-body {
-        padding: 10px;
-        font-size: 10px;
-    }
-}
-
-/* Fix Anchor Scroll Overlap */
-section[id] {
-    scroll-margin-top: 75px;
-}
-
-
-/* Guaranteed Header Spacer Element with Safe Area Inset Support */
-.header-spacer {
-    height: 110px;
-    width: 100%;
-    display: block;
-    clear: both;
-}
-
-@media (max-width: 992px) {
-    .header-spacer {
-        height: 125px;
-    }
-}
-
-@media (max-width: 768px) {
-    .header-spacer {
-        height: 140px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-spacer {
-        height: 150px;
-    }
-}
-
-    </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+    <!-- Background Grid Effect -->
+    <div class="grid-bg"></div>
+
+    <!-- STICKY NAVBAR -->
+    <header class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-code accent"></i> NGUYEN_MINH_TAN<span class="accent">.NET</span>
+            <a href="#hero" class="brand">
+                <div class="brand-logo">NT</div>
+                <div class="brand-info">
+                    <span class="brand-name">Nguyễn Minh Tân </span>
+                    <span class="brand-tag">.NET DEVENLOPER</span>
+                </div>
             </a>
-            
-            <div class="nav-right-mobile">
-                <a href="https://webcuatan.click" target="_blank" class="btn-cv"><i class="fa-solid fa-globe"></i> Live Demo</a>
-                <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle navigation">
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#catalog" class="nav-link active">Sản Phẩm &amp; Dự Án</a></li>
+                    <li><a href="#skills" class="nav-link">Kỹ Năng &amp; Kiến Trúc</a></li>
+                    <li><a href="#about" class="nav-link">Về Tôi</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button onclick="openOrderModal('Liên Hệ Hợp Tác')" class="btn btn-primary nav-cta">
+                    <i class="fa-solid fa-paper-plane"></i> Liên Hệ Tôi
+                </button>
+                <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
-
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#about" class="nav-link active">Tóm Tắt</a></li>
-                <li><a href="#projects" class="nav-link">Dự Án</a></li>
-                <li><a href="#simulator" class="nav-link">Live Webhook Test</a></li>
-                <li><a href="#skills" class="nav-link">Kỹ Năng</a></li>
-                <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
-            </ul>
         </div>
-    </nav>
-
-    <!-- GUARANTEED PHYSICAL HEADER SPACER (150px ON MOBILE TO CLEAR ALL NOTCHES & SAFARI BARS) -->
-    <div class="header-spacer"></div>
+    </header>
 
     <!-- HERO SECTION -->
-    <section class="hero container" id="about">
-        <div class="hero-content">
-            <div class="hero-status">
-                <span class="pulse-dot"></span> OPEN FOR INTERN / FRESHER .NET
-            </div>
-            
-            <div class="hero-subhead">Xin chào, Tôi là</div>
-            <h1 class="hero-heading"><span class="gradient-text">Nguyễn Minh Tân</span></h1>
-            
-            <div class="hero-title-box">
-                <i class="fa-solid fa-terminal"></i> <span id="typing-text"></span>
+    <section class="hero container" id="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <div class="hero-badge-pill">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span id="typing-text">.NET 8 &amp; ASP.NET Core Specialist</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Xây Dựng Hệ Thống Web &amp; API Hiệu Năng Cao <br>
+                    <span class="gradient-text">Vững Chắc Như Bê Tông Cốt Thép.</span>
+                </h1>
+
+                <p class="hero-desc">
+                    Tôi là <strong>Nguyễn Minh Tân</strong> — Kỹ sư phần mềm<strong>.NET 8, Clean Architecture, VietQR SePay Webhook Real-time, Offline-First SQLite &amp; AI RAG</strong>. 
+                    Cam kết mã nguồn chuẩn<em></em>.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#catalog" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-cubes"></i> Khám Phá Sản Phẩm
+                    </a>
+                    <a href="#skills" class="btn btn-secondary btn-lg">
+                        <i class="fa-solid fa-shield-halved"></i> Xem Kỹ Năng &amp; Kiến Trúc
+                    </a>
+                    <button onclick="copyEmail(event)" class="btn btn-outline-cyan btn-lg">
+                        <i class="fa-solid fa-copy"></i> Copy Email
+                    </button>
+                </div>
             </div>
 
-            <p class="hero-desc">
-                Sinh viên năm cuối Kỹ thuật Phần mềm <strong>HUFLIT</strong>. Chuyên môn thiết kế kiến trúc Backend <strong>C#, ASP.NET MVC 5, EF6 & SQL Server</strong>. Đã thực chiến gạch nợ tự động VietQR SePay Webhook 24/7 và kho đa đơn vị (Sales BOM).
-            </p>
-
-            <div class="hero-actions">
-                <a href="#projects" class="btn-primary"><i class="fa-solid fa-rocket"></i> Xem Dự Án</a>
-                <a href="https://github.com/NguyenTan33" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-num">10+</div>
-                    <div class="stat-label">Controllers Refactored</div>
+            <!-- HERO LIVE CODE PREVIEW (WITH INTERACTIVE TABS) -->
+            <div class="hero-card-preview">
+                <div class="terminal-tab-bar">
+                    <div class="terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-amber"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="terminal-tabs">
+                        <button class="terminal-tab-btn active" data-tab="webhook">SePayWebhook.cs</button>
+                        <button class="terminal-tab-btn" data-tab="cleanarch">CleanArchitecture.cs</button>
+                        <button class="terminal-tab-btn" data-tab="offlinesync">OfflineSync.ts</button>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-num">2-3s</div>
-                    <div class="stat-label">VietQR Reconciled</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">100%</div>
-                    <div class="stat-label">Stock Synced</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">2.95</div>
-                    <div class="stat-label">GPA HUFLIT</div>
+                <div class="terminal-body" id="terminal-code-body">
+                    <div class="terminal-line"><span class="t-num">01</span><span><span class="t-comment">// 1. Tự động gạch nợ ngân hàng trong 2-3s</span></span></div>
+                    <div class="terminal-line"><span class="t-num">02</span><span><span class="t-key">public async</span> <span class="t-type">Task</span>&lt;<span class="t-type">OrderResult</span>&gt; <span class="t-func">ProcessWebhookAsync</span>(<span class="t-type">SePayWebhookDto</span> dto)</span></div>
+                    <div class="terminal-line"><span class="t-num">03</span><span>{</span></div>
+                    <div class="terminal-line"><span class="t-num">04</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">var</span> orderId = <span class="t-func">ExtractOrderId</span>(dto.Content); <span class="t-comment">// Regex /(BHX\d+)/i</span></span></div>
+                    <div class="terminal-line"><span class="t-num">05</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">var</span> order = <span class="t-key">await</span> _dbContext.Orders.<span class="t-func">FindAsync</span>(orderId);</span></div>
+                    <div class="terminal-line"><span class="t-num">06</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">if</span> (order == <span class="t-key">null</span> || order.PaymentStatus == <span class="t-type">Paid</span>) <span class="t-key">return</span>;</span></div>
+                    <div class="terminal-line"><span class="t-num">07</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-comment">// Cập nhật trạng thái + Trừ kho Sales BOM đa đơn vị</span></span></div>
+                    <div class="terminal-line"><span class="t-num">08</span><span>&nbsp;&nbsp;&nbsp;&nbsp;order.PaymentStatus = <span class="t-type">PaymentStatus</span>.<span class="t-func">Paid</span>;</span></div>
+                    <div class="terminal-line"><span class="t-num">09</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> _inventoryService.<span class="t-func">DeductStockAsync</span>(order.Items);</span></div>
+                    <div class="terminal-line"><span class="t-num">10</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">await</span> _emailService.<span class="t-func">SendInvoiceHtmlAsync</span>(order);</span></div>
+                    <div class="terminal-line"><span class="t-num">11</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">return</span> <span class="t-type">OrderResult</span>.<span class="t-func">Success</span>(orderId);</span></div>
+                    <div class="terminal-line"><span class="t-num">12</span><span>}</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- CODE TERMINAL PLAYGROUND -->
-        <div class="terminal-box">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
+        <!-- STATS STRIP -->
+        <div class="stats-strip">
+            <div class="stat-card-item">
+                <div class="stat-icon-wrap"><i class="fa-solid fa-cubes"></i></div>
+                <div class="stat-content">
+                    <span class="stat-val">8</span>
+                    <span class="stat-label">Sản Phẩm &amp; Hệ Thống Thực Chiến</span>
                 </div>
-                <div class="terminal-title">backend-architecture-preview.cs</div>
             </div>
-            <div class="terminal-tabs">
-                <button class="tab-btn active" onclick="switchCodeTab(0)">SePayWebhookService.cs</button>
-                <button class="tab-btn" onclick="switchCodeTab(1)">OrderCheckoutService.cs</button>
-                <button class="tab-btn" onclick="switchCodeTab(2)">ProductSalesBOM.cs</button>
+            <div class="stat-card-item">
+                <div class="stat-icon-wrap" style="color:var(--neon-emerald); background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.3);"><i class="fa-solid fa-bolt"></i></div>
+                <div class="stat-content">
+                    <span class="stat-label">Tốc Độ Gạch Nợ Chuyển Khoản Tự Động Nhanh</span>
+                </div>
             </div>
-            <div class="terminal-body" id="code-content">
-                <!-- Dynamic Code Content Populated via JS -->
+            <div class="stat-card-item">
+                <div class="stat-icon-wrap" style="color:var(--neon-purple); background:rgba(168,85,247,0.1); border-color:rgba(168,85,247,0.3);"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="stat-content">
+                    <span class="stat-label">Chuẩn OOP, SOLID &amp; Clean Architecture</span>
+                </div>
+            </div>
+            <div class="stat-card-item">
+                <div class="stat-icon-wrap" style="color:var(--neon-amber); background:rgba(245,158,11,0.1); border-color:rgba(245,158,11,0.3);"><i class="fa-solid fa-clock"></i></div>
+                <div class="stat-content">
+                    <span class="stat-label">Hệ Thống Hoạt Động Tốt &amp; Sẵn Sàng Bàn Giao</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED PROJECT SPOTLIGHT -->
-    <section class="section section-alt" id="projects">
+    <!-- PRODUCT SHOWCASE CATALOG SECTION (EXTRA LARGE PROMINENT CARDS) -->
+    <section class="section section-alt" id="catalog">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">// DỰ ÁN THỰC CHUYÊN SÂU</span>
-                <h2 class="section-title">Bách Hóa Xanh E-Commerce Platform</h2>
+                <span class="section-tag">[ SẢN PHẨM &amp; ĐỒ ÁN THỰC CHIẾN ]</span>
+                <h2 class="section-title">Danh Mục Sản Phẩm &amp; Hệ Thống Đã Xây Dựng</h2>            
             </div>
 
-            <div class="project-featured">
-                <div class="project-head">
+            <!-- CATEGORY FILTER BUTTONS -->
+            <div class="catalog-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fa-solid fa-border-all"></i> Tất Cả <span class="filter-count">8</span>
+                </button>
+                <button class="filter-btn" data-filter="danentang">
+                    <i class="fa-solid fa-mobile-screen"></i> Đa Nền Tảng <span class="filter-count">1</span>
+                </button>
+                <button class="filter-btn" data-filter="ecommerce">
+                    <i class="fa-solid fa-cart-shopping"></i> Thương Mại Điện Tử <span class="filter-count">1</span>
+                </button>
+                <button class="filter-btn" data-filter="erp">
+                    <i class="fa-solid fa-network-wired"></i> ERP &amp; Quản Trị <span class="filter-count">3</span>
+                </button>
+                <button class="filter-btn" data-filter="desktop">
+                    <i class="fa-solid fa-desktop"></i> Desktop App <span class="filter-count">3</span>
+                </button>
+                <button class="filter-btn" data-filter="education">
+                    <i class="fa-solid fa-graduation-cap"></i> Education <span class="filter-count">2</span>
+                </button>
+            </div>
+
+            <!-- PRODUCT GRID (2 COLUMNS - EXTRA LARGE PROMINENT CARDS) -->
+            <div class="product-grid">
+
+                <!-- 1. MICROLEARNING - NỀN TẢNG HỌC TẬP -->
+                <div class="product-card" data-category="danentang education">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <div class="product-thumb-placeholder" style="background: linear-gradient(135deg, #1e1b4b, #0f172a);">
+                            <i class="fa-solid fa-graduation-cap" style="color: #a78bfa;"></i>
+                            <span style="font-family:var(--font-mono); font-size:15px; color:#c7d2fe; font-weight:700;">Microlearning Platform</span>
+                        </div>
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">Microlearning - Nền Tảng Học Tập</h3>
+                        <p class="product-desc">
+                            Hệ sinh thái học tập vi mô đa nền tảng (Web + Mobile App). 
+                            Kiến trúc <strong>Offline-First</strong> độc quyền với SQLite &amp; đồng bộ hai chiều (Delta Sync) ngầm. 
+                            Tích hợp trợ lý gia sư AI <strong>Google Gemini Pro RAG</strong> tự động đọc hiểu tài liệu Word/PDF được cung cấp để giải đáp thắc mắc chuyên sâu và trình phát video lai chống tua ăn gian.
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span><strong>Backend &amp; Kiến Trúc:</strong> .NET 8 Web API, Modular Monolith, JWT Bearer Token, Rate Limiting, Docker Container.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                <span><strong>Frontend &amp; Mobile:</strong> React 18, TypeScript, Tailwind CSS, React Native Expo SDK 52, SQLite Local Engine.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-brain"></i>
+                                <span><strong>AI &amp; Cloud:</strong> Google Gemini Pro RAG (Mammoth XML, PDF Parser), Azure SQL, Azure Blob Storage.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">.NET 8 Web API</span>
+                            <span class="tech-pill tag-cyan">React 18</span>
+                            <span class="tech-pill tag-cyan">React Native Expo 52</span>
+                            <span class="tech-pill">SQLite</span>
+                            <span class="tech-pill tag-purple">Google Gemini AI</span>
+                            <span class="tech-pill">Azure Cloud</span>
+                            <span class="tech-pill tag-emerald">Docker</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'Microlearning - Nền Tảng Học Tập')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('Microlearning - Nền Tảng Học Tập')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. E-COMMERCE -->
+                <div class="product-card" data-category="ecommerce">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <img src="images/projects/Home.png" alt="E-Commerce Platform" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-thumb-placeholder\'><i class=\'fa-solid fa-cart-shopping\'></i><span>E-Commerce Supermarket</span></div>';">
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">E-Commerce</h3>
+                        <p class="product-desc">
+                            Sàn thương mại điện tử mô phỏng bách hóa trực tuyến quy mô hoàn chỉnh. 
+                            Tích hợp cổng thanh toán tự động <strong>VietQR SePay Webhook</strong> gạch nợ trong 2-3s, tự động xuất hóa đơn HTML gửi email khách hàng, 
+                            thuật toán quy đổi tồn kho đa đơn vị tính <strong>(Sales BOM: Thùng/Lốc/Lon)</strong> chống bán lố và module phân tích hành vi người dùng.
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-server"></i>
+                                <span><strong>Backend &amp; Kiến Trúc:</strong> ASP.NET MVC, C#, Thin Controller / Fat Service Layer (OOP), SoC.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-database"></i>
+                                <span><strong>CSDL &amp; ORM:</strong> Microsoft SQL Server, Entity Framework(Code First &amp; DbContext), LINQ Optimization.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span><strong>Tích Hợp &amp; Tối Ưu:</strong> VietQR SePay Webhook, MoMo REST API, Task.Run Async Behavior Analytics.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">ASP.NET MVC</span>
+                            <span class="tech-pill tag-cyan">C#</span>
+                            <span class="tech-pill tag-cyan">Entity Framework</span>
+                            <span class="tech-pill tag-amber">SQL Server</span>
+                            <span class="tech-pill tag-emerald">VietQR SePay</span>
+                            <span class="tech-pill">MoMo API</span>
+                            <span class="tech-pill">Bootstrap 5</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'E-Commerce')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('E-Commerce')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. WEB XUẤT NHẬP KHẨU -->
+                <div class="product-card" data-category="erp">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <div class="product-thumb-placeholder" style="background: linear-gradient(135deg, #064e3b, #0f172a);">
+                            <i class="fa-solid fa-ship" style="color: #34d399;"></i>
+                            <span style="font-family:var(--font-mono); font-size:15px; color:#a7f3d0; font-weight:700;">Web Xuất Nhập Khẩu</span>
+                        </div>
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">Web Xuất Nhập Khẩu</h3>
+                        <p class="product-desc">
+                            Hệ thống quảng bá sản phẩm và vận chuyển xuất nhập khẩu, cho nghiệp vụ quản lý tờ khai hải quan, container và luồng vận chuyển hàng hóa xuất nhập khẩu quốc tế. 
+                            Áp dụng kiến trúc <strong>Clean Architecture</strong> tách biệt hoàn toàn Domain, Application với CQRS &amp; MediatR, Infrastructure và Presentation. 
+                            Tích hợp Docker containerization và kiểm thử tự động.
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span><strong>Kiến Trúc Đa Tầng:</strong> Domain-Driven Design (DDD), Clean Architecture, CQRS Pattern với MediatR.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-code"></i>
+                                <span><strong>Backend &amp; Frontend:</strong> .NET 8/9 Web API, Entity Framework Core, React Vite + Tailwind CSS.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-vial-circle-check"></i>
+                                <span><strong>DevOps &amp; Testing:</strong> Dockerfile, Docker Compose, xUnit Unit Test tự động, CI Pipeline.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">.NET 8 Web API</span>
+                            <span class="tech-pill tag-emerald">Clean Architecture</span>
+                            <span class="tech-pill tag-cyan">CQRS &amp; MediatR</span>
+                            <span class="tech-pill">React Vite</span>
+                            <span class="tech-pill tag-emerald">Docker</span>
+                            <span class="tech-pill">xUnit</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'Web Xuất Nhập Khẩu')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('Web Xuất Nhập Khẩu')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ERP F&B -->
+                <div class="product-card" data-category="erp">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <div class="product-thumb-placeholder" style="background: linear-gradient(135deg, #78350f, #0f172a);">
+                            <i class="fa-solid fa-utensils" style="color: #fbbf24;"></i>
+                            <span style="font-family:var(--font-mono); font-size:15px; color:#fde68a; font-weight:700;">ERP F&amp;B System</span>
+                        </div>
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">ERP F&amp;B</h3>
+                        <p class="product-desc">
+                            Hệ thống quản lý điểm bán hàng (POS) và kiểm soát kho chuyên dụng cho chuỗi nhà hàng, quán cafe. Có Audit tránh hao hụt và mất không lí do. Truy vết hàng tồn và dữ liệu.
+                            Sở hữu động cơ <strong>Recipe BOM (Định lượng nguyên vật liệu)</strong> tự động tính toán hao hụt và trừ kho nguyên liệu thô theo công thức pha chế ngay khi chốt đơn, 
+                            kết hợp <strong>BackgroundServices</strong> tự động giám sát ca bán và cảnh báo hết hàng.
+							Kết ca cuối giờ để bàn giao két cho ca sau.
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-calculator"></i>
+                                <span><strong>Recipe BOM Engine:</strong> Trừ tồn kho gram hạt cafe, ml sữa, siro tự động theo từng món trong hóa đơn.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                <span><strong>Background Worker:</strong> Chạy cron job ngầm chốt sổ doanh thu và cảnh báo ngưỡng tồn kho an toàn.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-vial"></i>
+                                <span><strong>Kiểm Thử &amp; CSDL:</strong> Entity Framework Core, SQL Server, Postman Collection test toàn bộ APIs.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">ASP.NET Core</span>
+                            <span class="tech-pill tag-emerald">BackgroundServices</span>
+                            <span class="tech-pill tag-cyan">Entity Framework Core</span>
+                            <span class="tech-pill tag-amber">SQL Server</span>
+                            <span class="tech-pill">Recipe BOM</span>
+                            <span class="tech-pill">Postman Tested</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'ERP F&B')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('ERP F&B')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. WEB QUẢN LÝ VÀ ĐẶT PHÒNG KHÁCH SẠN -->
+                <div class="product-card" data-category="erp">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <div class="product-thumb-placeholder" style="background: linear-gradient(135deg, #1e3a8a, #0f172a);">
+                            <i class="fa-solid fa-hotel" style="color: #60a5fa;"></i>
+                            <span style="font-family:var(--font-mono); font-size:15px; color:#bfdbfe; font-weight:700;">Quản Lý &amp; Đặt Phòng Khách Sạn</span>
+                        </div>
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">Web Quản Lý và Đặt Phòng Khách Sạn</h3>
+                        <p class="product-desc">
+                            Hệ thống Web PMS quản lý khách sạn toàn diện. Sở hữu giao diện ma trận sơ đồ phòng theo tầng (Room Matrix) trực quan theo thời gian thực, 
+                            xử lý quy trình Check-in/Check-out nhanh chóng, thuật toán kiểm tra phòng trống chống trùng lịch lưu trú và cơ chế chuyển phòng linh hoạt kèm ghi vết nhật ký kiểm toán <code>RoomTransfer</code>.
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-table-cells-large"></i>
+                                <span><strong>Ma Trận Phòng Matrix:</strong> Hiển thị trạng thái phòng trống, đang ở, chuẩn bị check-out trực quan.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span><strong>Chống Trùng Lịch:</strong> Lọc phòng trống theo khoảng thời gian thực tế `CheckInDate` - `CheckOutDate`.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                <span><strong>Chuyển Phòng &amp; Audit Log:</strong> Ghi vết lịch sử phòng cũ, phòng mới và thời điểm chuyển phòng.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">ASP.NET MVC</span>
+                            <span class="tech-pill tag-cyan">EF6 Database First</span>
+                            <span class="tech-pill tag-amber">MS SQL Server</span>
+                            <span class="tech-pill">LINQ to Entities</span>
+                            <span class="tech-pill">Bootstrap 5</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'Web Quản Lý và Đặt Phòng Khách Sạn')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('Web Quản Lý và Đặt Phòng Khách Sạn')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. QUẢN LÝ QUÁN JBILLARD (DESKTOP) -->
+                <div class="product-card" data-category="desktop">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <div class="product-thumb-placeholder" style="background: linear-gradient(135deg, #18181b, #09090b);">
+                            <i class="fa-solid fa-circle-dot" style="color: #38bdf8;"></i>
+                            <span style="font-family:var(--font-mono); font-size:15px; color:#e4e4e7; font-weight:700;">Quản Lý Quán JBillard</span>
+                        </div>
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">Quản Lý Quán JBillard</h3>
+                        <p class="product-desc">
+                            Ứng dụng desktop hiệu năng cao chuyên biệt cho quản lý câu lạc bộ Bida. 
+                            Tích hợp đồng hồ tính tiền giờ tự động theo block phút, tách bạch tiền bàn theo loại bàn (Lỗ, France, Carom), 
+                            quản lý dịch vụ đồ ăn thức uống gọi kèm và in bill thanh toán chuẩn xác, hoạt động độc lập không phụ thuộc Internet.
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-stopwatch"></i>
+                                <span><strong>Tính Tiền Giờ Tự Động:</strong> Quản lý thời gian mở bàn, tạm dừng và tự động nhân đơn giá theo khung giờ.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-window-maximize"></i>
+                                <span><strong>Giao Diện WPF Mượt Mà:</strong> Công nghệ WPF/XAML hiện đại, hiển thị sơ đồ bàn bida trực quan.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-database"></i>
+                                <span><strong>CSDL Cục Bộ:</strong> Kết nối Microsoft SQL Server cục bộ, tốc độ phản hồi tính bằng mili-giây.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">C# .NET</span>
+                            <span class="tech-pill tag-cyan">WPF / XAML</span>
+                            <span class="tech-pill tag-amber">Local SQL Server</span>
+                            <span class="tech-pill tag-emerald">MVVM Pattern</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'Quản Lý Quán JBillard')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('Quản Lý Quán JBillard')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. SỔ TÀI CHÍNH CÁ NHÂN (DESKTOP) -->
+                <div class="product-card" data-category="desktop">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <img src="images/projects/ql_taichinh.jpg" alt="Sổ Tài Chính Cá Nhân" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-thumb-placeholder\'><i class=\'fa-solid fa-wallet\'></i><span>Sổ Tài Chính Cá Nhân</span></div>';">
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">Sổ Tài Chính Cá Nhân</h3>
+                        <p class="product-desc">
+                            Phần mềm kế toán cá nhân và quản lý dòng tiền dành cho hộ kinh doanh, cá nhân. 
+                            Bao gồm các phân hệ: Quản lý thu chi theo danh mục, quản lý ngân sách tháng, theo dõi công nợ, quản lý danh mục đầu tư và phân tích biểu đồ báo cáo tài chính trực quan.
+							Có tích hợp AI gợi ý và đề xuất các yêu cầu tài chính
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-chart-pie"></i>
+                                <span><strong>Data Analytics:</strong> Biểu đồ trực quan hóa cơ cấu chi tiêu, cảnh báo khi chi tiêu vượt ngân sách định mức.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-money-bill-transfer"></i>
+                                <span><strong>Quản Lý Đa Ví &amp; Công Nợ:</strong> Theo dõi số dư nhiều tài khoản ngân hàng, ví tiền mặt và lịch trả nợ.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-desktop"></i>
+                                <span><strong>Nền Tảng Ứng Dụng:</strong> Windows Forms kết hợp thư viện đồ họa .NET, lưu trữ CSDL SQL Server an toàn.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">C# .NET</span>
+                            <span class="tech-pill tag-cyan">Windows Forms</span>
+                            <span class="tech-pill">ADO.NET</span>
+                            <span class="tech-pill tag-amber">MS SQL Server</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'Sổ Tài Chính Cá Nhân')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('Sổ Tài Chính Cá Nhân')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. QUẢN LÍ HỌC VIÊN (DESKTOP & EDUCATION) -->
+                <div class="product-card" data-category="desktop education">
+                    <div class="product-thumb">
+                        <!-- THAY ĐỔI ĐƯỜNG DẪN ẢNH TẠI SRC DƯỚI ĐÂY -->
+                        <img src="images/projects/ql_hocvien.png" alt="Quản Lí Học Viên" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'product-thumb-placeholder\'><i class=\'fa-solid fa-user-graduate\'></i><span>Quản Lí Học Viên</span></div>';">
+                    </div>
+
+                    <div class="product-body">
+                        <h3 class="product-title">Quản Lí Học Viên</h3>
+                        <p class="product-desc">
+                            Hệ thống quản lý học viên. 
+                            Áp dụng kiến trúc <strong>WPF .NET 8.0 chuẩn MVVM</strong>, giúp quản lý tốt các học viên trong các đơn vị. 
+                            Tích hợp cơ chế mã hóa<strong>SQLCipher AES-256</strong>, cơ cấu đơn vị 7 cấp độ và Engine giao diện kép (sáng và tối).
+                        </p>
+
+                        <div class="spec-box">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span><strong>Bảo Mật:</strong> Mã hóa toàn bộ CSDL cục bộ bằng SQLCipher AES-256, khóa passkey bảo vệ 2 lớp.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-vial-circle-check"></i>
+                                <span><strong>Độ Tin Cậy Tuyệt Đối:</strong> 131 bài test tự động bao phủ toàn bộ logic nghiệp vụ xếp loại và tín chỉ.</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-sitemap"></i>
+                                <span><strong>Cơ Cấu 7 Cấp Đơn Vị:</strong> Quản lý phân cấp giúp tối ưu khi có nhiều cấp bậc.</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill tag-cyan">.NET 8.0 WPF</span>
+                            <span class="tech-pill tag-emerald">MVVM Pattern</span>
+                            <span class="tech-pill tag-emerald">SQLCipher AES-256</span>
+                            <span class="tech-pill">Dual-Theme Engine</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <!-- GẮN LINK VIDEO YOUTUBE DEMO CỦA BẠN VÀO THAM SỐ THỨ NHẤT DƯỚI ĐÂY -->
+                            <button onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID', 'Quản Lí Học Viên')" class="btn btn-demo-ytb btn-sm">
+                                <i class="fa-brands fa-youtube"></i> Xem Demo
+                            </button>
+                            <button onclick="openOrderModal('Quản Lí Học Viên')" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-paper-plane"></i> Liên Hệ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS & ARCHITECTURE SECTION -->
+    <section class="section container" id="skills">
+        <div class="section-header">
+            <span class="section-tag">[ NĂNG LỰC KỸ THUẬT ]</span>
+            <h2 class="section-title">Kỹ Năng, Kiến Trúc &amp; Quản Trị Hệ Thống</h2>
+            <p class="section-subtitle">
+                Tổng hợp toàn bộ các kỹ năng cốt lõi, kiến trúc phần mềm, thuật toán thực chiến, quản trị cơ sở dữ liệu và kinh nghiệm áp dụng AI trong quy trình lập trình của tôi.
+            </p>
+        </div>
+
+        <div class="skills-category-grid">
+
+            <!-- 1. CÁC KỸ NĂNG CỦA TÔI -->
+            <div class="skills-card">
+                <div class="skills-header">
+                    <div class="skills-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="skills-title">Các Kỹ Năng Của Tôi</h3>
+                </div>
+                <ul class="skills-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>Ngôn ngữ lập trình:</strong> C# (.NET Framework &amp; .NET 8), SQL, JavaScript / TypeScript, Java.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Backend Frameworks:</strong> ASP.NET Core Web API, ASP.NET MVC, Entity Framework Core, Entity Framework.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Frontend &amp; Mobile:</strong> React 18, React Native, Tailwind CSS, Bootstrap 5, Razor View Engine.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Desktop Development:</strong> WPF với XAML, Windows Forms.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Công cụ &amp; Môi trường:</strong> Visual Studio 2022, Git &amp; GitHub, Docker, Postman, SSMS, IIS Express, Azure Cloud.</li>
+                </ul>
+            </div>
+
+            <!-- 2. CÁC KIẾN TRÚC TÔI ĐƯỢC HỌC -->
+            <div class="skills-card">
+                <div class="skills-header">
+                    <div class="skills-icon"><i class="fa-solid fa-sitemap"></i></div>
+                    <h3 class="skills-title">Các Kiến Trúc Tôi Được Học</h3>
+                </div>
+                <ul class="skills-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>Clean Architecture (Onion / Hexagonal):</strong> Phân tầng nghiêm ngặt Domain, Application (CQRS &amp; MediatR), Infrastructure và Web API.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Thin Controller / Fat Service:</strong> Triệt tiêu monolithic fat controller; đóng gói 100% Business Logic vào Service Layer qua Interface và Dependency Injection.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Modular Monolith:</strong> Phân chia các Area / Module nghiệp vụ độc lập, đảm bảo tính đóng gói cao và dễ dàng tách Microservices khi mở rộng.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Offline-First Architecture:</strong> Thiết kế kiến trúc ngoại tuyến với SQLite cục bộ &amp; AutoSync Engine ngầm đồng bộ hai chiều (Outbox Batch Push &amp; Sequence Delta Pull).</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Mô hình MVVM &amp; MVC:</strong> Áp dụng chuẩn mực MVVM cho Desktop WPF và MVC cho Web ứng dụng.</li>
+                </ul>
+            </div>
+
+            <!-- 3. CÁC KỸ NĂNG TÔI NẮM VỮNG -->
+            <div class="skills-card">
+                <div class="skills-header">
+                    <div class="skills-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="skills-title">Các Kỹ Năng Tôi Nắm Vững</h3>
+                </div>
+                <ul class="skills-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>Chuẩn mực OOP &amp; SOLID:</strong> Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Lập trình bất đồng bộ:</strong> Nắm vững `async/await`, giải phóng luồng máy chủ, chạy tác vụ nền ngầm với `Task.Run` và `BackgroundServices`.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Tích hợp Webhook &amp; Cổng thanh toán:</strong> Lắng nghe và xử lý biến động số dư VietQR SePay, gạch nợ tự động 2-3s kèm Fallback API Polling.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Bảo mật &amp; Phân quyền:</strong> JWT Bearer Authentication, Refresh Token, Role-Based Access Control (RBAC), ASP.NET Identity 2.0, OWIN.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Xử lý ngoại lệ &amp; Kiểm thử:</strong> Global Exception Middleware, Viết Unit Test tự động với xUnit, Test Coverage cao.</li>
+                </ul>
+            </div>
+         
+
+            <!-- 5. QUẢN TRỊ HỆ CƠ SỞ DỮ LIỆU -->
+            <div class="skills-card">
+                <div class="skills-header">
+                    <div class="skills-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="skills-title">Quản Trị Hệ CSDL</h3>
+                </div>
+                <ul class="skills-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>Microsoft SQL Server (SSMS):</strong> Thiết kế mô hình CSDL quan hệ chuẩn hóa (1NF, 2NF, 3NF), Stored Procedures, Triggers, Views, Foreign Keys.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Tối ưu hóa Index &amp; Truy vấn:</strong> Clustered/Non-clustered Indexing, phân tích Execution Plan, triệt tiêu lỗi N+1 Query trong ORM.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>SQLite &amp; Embedded Database:</strong> Quản trị CSDL nhúng cục bộ trên Mobile (Expo) và Desktop (WPF), tích hợp mã hóa an ninh <strong>SQLCipher AES-256</strong>.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Entity Framework &amp; LINQ:</strong> Thành thạo cả Code First (Migrations) và Database First (`.edmx`), tối ưu hóa LINQ với `AsNoTracking` và DTO Projection.</li>
+                </ul>
+            </div>
+
+            <!-- 6. KINH NGHIỆM SỬ DỤNG AI TRONG LẬP TRÌNH -->
+            <div class="skills-card">
+                <div class="skills-header">
+                    <div class="skills-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="skills-title">Kinh Nghiệm Sử Dụng AI Trong Lập Trình</h3>
+                </div>
+                <ul class="skills-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>Tích hợp Google Gemini Pro API &amp; RAG Engine:</strong> Xây dựng module tự động bóc tách tài liệu bài giảng (.docx qua Mammoth XML, .pdf, .txt) và trợ lý hỏi đáp thông minh theo ngữ cảnh tài liệu.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Trợ lý AI Pair-Programming:</strong> Sử dụng các công cụ AI hiện đại (Antigravity, GitHub Copilot,Claude) để hỗ trợ rà soát lỗi logic, tối ưu hóa code và tăng tốc phát triển.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Sinh dữ liệu kiểm thử &amp; Unit Tests tự động:</strong> Ứng dụng AI sinh mock data phong phú và các ca kiểm thử biên (edge cases) cho xUnit.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Thẩm định kiến trúc &amp; Security:</strong> Sử dụng AI làm công cụ review độc lập nhằm kiểm tra sự tuân thủ nguyên lý SOLID và phát hiện lỗ hổng bảo mật.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT ME & EDUCATION SECTION (LUXURY REDESIGN) -->
+    <section class="section section-alt" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">[ THÔNG TIN CÁ NHÂN ]</span>
+                <h2 class="section-title">Kỹ Sư Phần Mềm Đam Mê Kiến Trúc Hệ Thống</h2>
+                <p class="section-subtitle">
+                    Tập trung rèn luyện chiều sâu kỹ thuật, làm chủ các giải pháp backend hiệu năng cao và tư duy xây dựng phần mềm chất lượng chuẩn doanh nghiệp.
+                </p>
+            </div>
+
+            <div class="about-luxury-grid">
+                <!-- LEFT: DEV PROFILE CARD -->
+                <div class="dev-profile-card">
                     <div>
-                        <span class="project-badge">MAIN BACKEND ARCHITECT CAPSTONE</span>
-                        <h3 class="project-name">🛒 Bách Hóa Xanh E-Commerce Supermarket System</h3>
+                        <div class="dev-avatar-header">
+                            <div class="dev-avatar-ring">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div class="dev-name-title">
+                                <h3>Nguyễn Minh Tân</h3>
+                                <p>.NET BACKEND &amp; FULLSTACK ARCHITECT</p>
+                            </div>
+                        </div>
+
+                        <div class="dev-status-pill">
+                            <span class="pulse-dot"></span> Sẵn sàng nhận việc: Junior / Intern / Outsourcing
+                        </div>
+
+                        <p class="dev-bio-text">
+                            Tôi là sinh viên năm cuối chuyên ngành <strong>Kỹ Thuật Phần Mềm</strong> tại Trường Đại học Ngoại ngữ - Tin học TP.HCM (<strong>HUFLIT</strong>).
+                        </p>
+                        <p class="dev-bio-text">
+                            Mục tiêu của tôi là trở thành một Senior Backend Architect. Thay vì chạy theo framework nhất thời, tôi tập trung rèn luyện <strong>cấu trúc dữ liệu, giải thuật, nguyên lý hướng đối tượng, kiến trúc phân tầng sạch (Clean Architecture)</strong> và bảo mật dữ liệu cấp cao.
+                        </p>
                     </div>
-                    <div class="project-links">
-                        <a href="https://webcuatan.click" target="_blank" class="btn-link"><i class="fa-solid fa-globe"></i> Live Website</a>
-                        <a href="https://github.com/NguyenTan33/Do_An_E_Commerce_BHX_Web" target="_blank" class="btn-link"><i class="fa-brands fa-github"></i> Source Code</a>
+
+                    <div class="dev-contact-pills">
+                        <a href="https://github.com/NguyenTan33" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                            <i class="fa-brands fa-github"></i> GitHub: @NguyenTan33
+                        </a>
+                        <button onclick="copyEmail(event)" class="btn btn-outline-cyan btn-sm">
+                            <i class="fa-solid fa-copy"></i> nguyenminhtan301205@gmail.com
+                        </button>
                     </div>
                 </div>
 
-                <div class="project-body">
-                    <div class="grid-2">
-                        <div class="solution-card">
-                            <h4><i class="fa-solid fa-qrcode"></i> Thanh Toán Tự Động VietQR SePay Webhook</h4>
-                            <p>Tích hợp Webhook SePay lắng nghe biến động tài khoản ngân hàng VietinBank. Sử dụng Regex trích xuất mã đơn BHX để gạch nợ tự động trong <strong>2-3s</strong>, phát hành Email hóa đơn HTML tự động và triển khai Polling Fallback kèm Engine tự động hủy đơn sau 10 phút để hoàn tồn kho.</p>
+                <!-- RIGHT: TIMELINE OF MILESTONES -->
+                <div class="timeline-card-wrapper">
+                    <div class="timeline-header-title">
+                        <i class="fa-solid fa-graduation-cap"></i> Học Vấn &amp; Cột Mốc Phát Triển
+                    </div>
+
+                    <div class="timeline-box-list">
+                        <!-- MILESTONE 1 -->
+                        <div class="timeline-node-card">
+                            <div class="timeline-node-date">2023 - 2027 (HIỆN TẠI)</div>
+                            <div class="timeline-node-title">Đại Học Ngoại Ngữ - Tin Học TP.HCM (HUFLIT)</div>
+                            <div class="timeline-node-desc">
+                                Chuyên ngành Kỹ Thuật Phần Mềm (Software Engineering) - Đạt chuẩn GPA và tập trung sâu vào hệ sinh thái .NET &amp; C#, Clean Architecture và giải pháp Web doanh nghiệp.
+                            </div>
                         </div>
 
-                        <div class="solution-card">
-                            <h4><i class="fa-solid fa-cubes"></i> Đa Đơn Vị Tính & Kho Quy Đổi (Sales BOM)</h4>
-                            <p>Giải quyết triệt để rủi ro bán lố (Over-selling) khi bán sản phẩm dạng Thùng/Lốc dùng chung kho với Lon/Cái lẻ. Thiết kế mô hình CSDL Entity Framework 6 với <code>ParentProductId</code> và <code>UnitMultiplier</code>, tự động quy đổi tồn kho khả dụng và trừ kho gốc lon lẻ khi phát sinh đơn hàng.</p>
+                        <!-- MILESTONE 2 -->
+                        <div class="timeline-node-card">
+                            <div class="timeline-node-date">2024 - 2025</div>
+                            <div class="timeline-node-title">Xây Dựng E-Commerce Siêu Thị &amp; Web Khách Sạn PMS</div>
+                            <div class="timeline-node-desc">
+                                Làm chủ kiến trúc Thin Controller / Fat Service, tích hợp thành công Webhook SePay VietQR gạch nợ tự động trong 2-3s và thuật toán quy đổi Sales BOM.
+                            </div>
                         </div>
 
-                        <div class="solution-card">
-                            <h4><i class="fa-solid fa-sitemap"></i> Tái Cấu Trúc Thin Controller / Service Layer</h4>
-                            <p>Refactor hơn 10 Fat Controllers (>1.000 dòng code EF/SQL trực tiếp) về dạng Thin Controller. Đóng gói toàn bộ Business Logic vào tầng Service Layer qua Interface và Dependency Injection, tuân thủ nguyên lý Separation of Concerns (SoC).</p>
-                        </div>
-
-                        <div class="solution-card">
-                            <h4><i class="fa-solid fa-chart-line"></i> Async User Behavior Analytics (Non-blocking)</h4>
-                            <p>Xây dựng module ghi nhận log hành vi người dùng (SearchKeyword, Page Dwell Time, Rage Click) bất đồng bộ ngầm bằng <code>Task.Run</code> và Beacon API mà không gây nghẽn (Non-blocking) luồng xử lý trang web chính.</p>
+                        <!-- MILESTONE 3 -->
+                        <div class="timeline-node-card">
+                            <div class="timeline-node-date">2025 - 2026</div>
+                            <div class="timeline-node-title">Phát Triển MicroLearning, WebXNK &amp; Ứng Dụng Desktop</div>
+                            <div class="timeline-node-desc">
+                                Làm chủ .NET 8 Web API, React 18, React Native Expo Offline-First với SQLite, Google Gemini AI RAG và ứng dụng quân sự WPF đạt 131/131 Unit Tests.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1102,327 +783,151 @@ section[id] {
         </div>
     </section>
 
-    <!-- LIVE WEBHOOK SIMULATOR (INTERACTIVE TOOL) -->
-    <section class="section container" id="simulator">
-        <div class="section-header">
-            <span class="section-tag">// INTERACTIVE DEMO TOOL</span>
-            <h2 class="section-title">Trải Nghiệm Live Webhook Gạch Nợ Tự Động</h2>
-        </div>
-
-        <div class="simulator-box">
-            <div class="sim-title">
-                <i class="fa-solid fa-bolt"></i> GIẢ LẬP GIAO DỊCH SEPAY WEBHOOK CHUYỂN KHOẢN NGÂN HÀNG
-            </div>
-            <div class="sim-form">
-                <input type="text" id="sim-order-id" class="sim-input" value="BHX8899" placeholder="Nhập Mã Đơn (ví dụ: BHX8899)">
-                <input type="number" id="sim-amount" class="sim-input" value="150000" placeholder="Số Tiền Chuyển (VNĐ)">
-                <button class="sim-btn" onclick="runWebhookSimulation()"><i class="fa-solid fa-play"></i> BẮT ĐẦU GIẢ LẬP GẠCH NỢ</button>
-            </div>
-            <div class="sim-console" id="sim-log">
-                // Nhấn "BẮT ĐẦU GIẢ LẬP GẠCH NỢ" để xem hệ thống thực thi luồng Webhook -> Regex Extract -> Auto Reconciliation -> Send Email Invoice...
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS MATRIX -->
-    <section class="section section-alt" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">// KỸ NĂNG CHUYÊN MÔN</span>
-                <h2 class="section-title">Technical Skill Matrix</h2>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <div class="skill-group-title"><i class="fa-solid fa-code"></i> Backend & Core</div>
-                    <div class="skill-list">
-                        <span class="skill-tag">C# (.NET)</span>
-                        <span class="skill-tag">ASP.NET MVC 5</span>
-                        <span class="skill-tag">.NET Core</span>
-                        <span class="skill-tag">LINQ</span>
-                        <span class="skill-tag">Async / Await</span>
-                        <span class="skill-tag">RESTful APIs</span>
+    <!-- FOOTER (REDESIGNED LUXURY & CLEAN) -->
+    <footer class="footer">
+            <!-- MAIN FOOTER GRID -->
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-title">Nguyễn Minh Tân</div>
+                    <p class="footer-text">
+                        Kỹ sư phần mềm chuyên sâu .NET, Clean Architecture &amp; Giải pháp Web thực chiến. 
+                        Đam mê xây dựng các hệ thống chuẩn mực, bảo mật cao và vận hành ổn định 24/7.
+                    </p>
+                    <div style="display:flex; gap:10px;">
+                        <a href="https://github.com/NguyenTan33" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="GitHub Profile">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <button onclick="copyEmail(event)" class="btn btn-secondary btn-sm" aria-label="Copy Email">
+                            <i class="fa-solid fa-envelope"></i> Email
+                        </button>
                     </div>
                 </div>
 
-                <div class="skill-group">
-                    <div class="skill-group-title"><i class="fa-solid fa-database"></i> Database & ORM</div>
-                    <div class="skill-list">
-                        <span class="skill-tag">MS SQL Server</span>
-                        <span class="skill-tag">SSMS</span>
-                        <span class="skill-tag">Entity Framework 6</span>
-                        <span class="skill-tag">Code First / DbContext</span>
-                        <span class="skill-tag">Query Optimization</span>
-                    </div>
+                <div>
+                    <div class="footer-col-title">ĐIỀU HƯỚNG NHANH</div>
+                    <ul class="footer-links">
+                        <li><a href="#catalog">Sản Phẩm &amp; Đồ Án</a></li>
+                        <li><a href="#skills">Kỹ Năng &amp; Kiến Trúc</a></li>
+                        <li><a href="#about">Về Tôi &amp; Cột Mốc</a></li>
+                        <li><a href="#hero">Trở Lên Đầu Trang</a></li>
+                    </ul>
                 </div>
 
-                <div class="skill-group">
-                    <div class="skill-group-title"><i class="fa-solid fa-shield-halved"></i> Architecture & Integrations</div>
-                    <div class="skill-list">
-                        <span class="skill-tag">Clean Architecture</span>
-                        <span class="skill-tag">Thin Controller Pattern</span>
-                        <span class="skill-tag">SePay VietQR Webhook</span>
-                        <span class="skill-tag">MoMo REST API</span>
-                        <span class="skill-tag">ASP.NET Identity 2.0</span>
-                        <span class="skill-tag">SMTP Invoice Mailer</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EDUCATION TIMELINE -->
-    <section class="section container">
-        <div class="section-header">
-            <span class="section-tag">// HÀNH TRÌNH & HỌC VẤN</span>
-            <h2 class="section-title">Education & Milestones</h2>
-        </div>
-
-        <div class="timeline-box">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-year">2022 - 2027 (Sinh viên năm cuối)</div>
-                    <div class="timeline-role">Sinh Viên Công nghệ Thông tin (Kỹ thuật Phần mềm)</div>
-                    <div class="timeline-inst">Trường Đại học Ngoại ngữ - Tin học TP.HCM (HUFLIT) • GPA: 2.95 / 4.0</div>
-                    <p style="font-size: 13px; color: var(--text-muted);">Tập trung nghiên cứu Lập trình Hướng đối tượng (OOP), Cấu trúc Dữ liệu & Giải thuật, Hệ Quản trị CSDL SQL Server và Kiến trúc Phần mềm Backend.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER & CONTACT -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="contact-box">
-                <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 10px;">Sẵn Sàng Đóng Góp Vào Đội Ngũ Của Bạn</h3>
-                <p style="color: var(--text-muted); font-size: 13.5px;">Hãy kết nối với tôi nếu bạn đang tìm kiếm một Intern / FRESHER .NET Backend Developer nhiệt huyết và có tư duy làm hệ thống thực chiến!</p>
-                
-                <div class="social-links">
-                    <a href="mailto:nguyenminhtan301205@gmail.com" class="btn-primary" onclick="copyEmail(event)"><i class="fa-solid fa-envelope"></i> nguyenminhtan301205@gmail.com</a>
-                    <a href="tel:0703342732" class="btn-secondary"><i class="fa-solid fa-phone"></i> 0703 342 732</a>
-                    <a href="https://github.com/NguyenTan33" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+                <div>
+                    <div class="footer-col-title">LIÊN HỆ TRỰC TIẾP</div>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-envelope" style="color:var(--neon-cyan); width:18px;"></i> nguyenminhtan301205@gmail.com</li>
+                        <li><i class="fa-solid fa-location-dot" style="color:var(--neon-cyan); width:18px;"></i> TP. Hồ Chí Minh, Việt Nam</li>
+                        <li><i class="fa-solid fa-clock" style="color:var(--neon-emerald); width:18px;"></i> Phản hồi email nhanh chóng</li>
+                    </ul>
                 </div>
             </div>
 
-            <p style="font-size: 12px; color: var(--text-dim); font-family: var(--font-mono);">
-                © 2026 Designed & Built by Nguyễn Minh Tân (.NET Backend Developer). Hosted on GitHub Pages.
-            </p>
+            <!-- BOTTOM COPYRIGHT -->
+            <div class="footer-bottom">
+                <div>&copy; 2026 Nguyễn Minh Tân. Thiết kế &amp; Vận hành trên GitHub Pages.</div>
+                <div class="footer-status-pill">
+                    <span class="pulse-dot"></span> Đảm Bảo Hệ Thống Vận Hành Ổn Định
+                </div>
+                <div><i>"Clean code always looks like it was written by someone who cares." — Robert C. Martin</i></div>
+            </div>
         </div>
     </footer>
 
+    <!-- YOUTUBE VIDEO DEMO MODAL (CINEMA MODE) -->
+    <div class="video-modal-overlay" id="video-modal">
+        <div class="video-modal-card">
+            <div class="video-modal-header">
+                <div class="video-modal-title" id="video-modal-title">
+                    <i class="fa-brands fa-youtube"></i> Video Demo Dự Án
+                </div>
+                <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Đóng video">&times;</button>
+            </div>
+            <div class="video-frame-container" id="video-frame-container">
+                <iframe id="video-modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-modal-notice" id="video-modal-notice">
+                <div class="notice-content">
+                    <i class="fa-brands fa-youtube notice-icon"></i>
+                    <div class="notice-title">Hiện chưa có video khả dụng đang được admin cập nhật</div>
+                    <button type="button" onclick="closeVideoModal()" class="btn btn-secondary btn-sm" style="margin-top: 20px;">
+                        <i class="fa-solid fa-xmark"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE CONSULTATION / ORDER MODAL -->
+    <div class="modal-overlay" id="order-modal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeOrderModal()" aria-label="Close modal">&times;</button>
+            <h3 class="modal-title">Liên Hệ &amp; Trao Đổi Dự Án</h3>
+            <p class="modal-sub">
+                Kết nối trực tiếp với Nguyễn Minh Tân để trao đổi cơ hội tuyển dụng, đặt hàng triển khai dự án hoặc tư vấn kỹ thuật.
+            </p>
+
+            <div class="modal-contacts-quick">
+                <button onclick="copyEmail(event)" class="quick-btn">
+                    <i class="fa-solid fa-copy" style="color:var(--neon-cyan);"></i>
+                    <span>Sao Chép Email</span>
+                </button>
+                <a href="mailto:nguyenminhtan301205@gmail.com?subject=Trao%20Đổi%20Công%20Việc%20Và%20Dự%20Án" class="quick-btn">
+                    <i class="fa-solid fa-paper-plane" style="color:var(--neon-emerald);"></i>
+                    <span>Gửi Email Trực Tiếp</span>
+                </a>
+                <a href="https://github.com/NguyenTan33" target="_blank" rel="noopener noreferrer" class="quick-btn">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub Profile</span>
+                </a>
+                <a href="https://webcuatan.click" target="_blank" rel="noopener noreferrer" class="quick-btn">
+                    <i class="fa-solid fa-globe" style="color:var(--neon-purple);"></i>
+                    <span>Xem Live Demo BHX</span>
+                </a>
+            </div>
+
+            <form onsubmit="event.preventDefault(); window.location.href='mailto:nguyenminhtan301205@gmail.com?subject=' + encodeURIComponent(document.getElementById('modal-service-select').value) + '&body=' + encodeURIComponent('Họ tên: ' + document.getElementById('modal-name').value + '\nLiên hệ: ' + document.getElementById('modal-contact').value + '\n\nNội dung trao đổi:\n' + document.getElementById('modal-message').value);">
+                <div class="sim-form-group" style="margin-bottom:12px;">
+                    <label class="sim-label" for="modal-service-select">DỰ ÁN / CHỦ ĐỀ QUAN TÂM:</label>
+                    <select id="modal-service-select" class="sim-input" style="cursor: pointer;">
+                        <option value="Tuyển Dụng .NET Developer (Junior/Intern)">Tuyển Dụng .NET Developer (Junior/Intern)</option>
+                        <option value="Microlearning - Nền Tảng Học Tập">Microlearning - Nền Tảng Học Tập</option>
+                        <option value="E-Commerce">E-Commerce</option>
+                        <option value="Web Xuất Nhập Khẩu">Web Xuất Nhập Khẩu</option>
+                        <option value="ERP F&B">ERP F&B</option>
+                        <option value="Web Quản Lý và Đặt Phòng Khách Sạn">Web Quản Lý và Đặt Phòng Khách Sạn</option>
+                        <option value="Quản Lý Quán JBillard">Quản Lý Quán JBillard</option>
+                        <option value="Sổ Tài Chính Cá Nhân">Sổ Tài Chính Cá Nhân</option>
+                        <option value="Quản Lí Học Viên">Quản Lí Học Viên</option>
+                    </select>
+                </div>
+
+                <div class="sim-form-group" style="margin-bottom:12px;">
+                    <label class="sim-label" for="modal-name">HỌ VÀ TÊN / TÊN ĐƠN VỊ:</label>
+                    <input type="text" id="modal-name" class="sim-input" required placeholder="Ví dụ: Anh Tuấn (Tech Lead) / Công ty ABC">
+                </div>
+
+                <div class="sim-form-group" style="margin-bottom:12px;">
+                    <label class="sim-label" for="modal-contact">EMAIL HOẶC SỐ ĐIỆN THOẠI / ZALO:</label>
+                    <input type="text" id="modal-contact" class="sim-input" required placeholder="Để tôi phản hồi nhanh chóng...">
+                </div>
+
+                <div class="sim-form-group" style="margin-bottom:18px;">
+                    <label class="sim-label" for="modal-message">NỘI DUNG TRAO ĐỔI TÓM TẮT:</label>
+                    <textarea id="modal-message" class="sim-input" rows="3" placeholder="Mô tả ngắn gọn về vị trí tuyển dụng hoặc yêu cầu dự án..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+                    <i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu Kết Nối Ngay
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- TOAST NOTIFICATION -->
-    <div class="toast" id="toast">✓ Đã sao chép Email vào bộ nhớ tạm!</div>
+    <div id="toast" class="toast-msg"></div>
 
-    <!-- External + Embedded JavaScript -->
+    <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script>
-/* 
-   NGUYỄN MINH TÂN - .NET BACKEND DEVELOPER PORTFOLIO
-   Interactive Script
-*/
-
-document.addEventListener('DOMContentLoaded', function() {
-    initTypingEffect();
-    switchCodeTab(0);
-    initNavToggle();
-    initScrollSpy();
-});
-
-const typingTexts = [
-    ".NET Backend Developer", 
-    "Clean Architecture Advocate", 
-    "SePay Webhook Integrator", 
-    "HUFLIT IT Student"
-];
-
-let textIdx = 0;
-let charIdx = 0;
-let isDeleting = false;
-
-function initTypingEffect() {
-    const elem = document.getElementById("typing-text");
-    if (!elem) return;
-
-    const currentText = typingTexts[textIdx];
-    
-    if (isDeleting) {
-        elem.textContent = currentText.substring(0, charIdx - 1);
-        charIdx--;
-    } else {
-        elem.textContent = currentText.substring(0, charIdx + 1);
-        charIdx++;
-    }
-
-    let typeSpeed = isDeleting ? 35 : 75;
-
-    if (!isDeleting && charIdx === currentText.length) {
-        typeSpeed = 1800;
-        isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-        isDeleting = false;
-        textIdx = (textIdx + 1) % typingTexts.length;
-        typeSpeed = 400;
-    }
-
-    setTimeout(initTypingEffect, typeSpeed);
-}
-
-const codeSnippets = [
-`// 1. SePayWebhookService.cs - Auto Payment Reconciliation 24/7
-public async Task<(bool Success, string Message, int OrderId)> ProcessWebhookAsync(SePayWebhookModel model)
-{
-    // Regex trích xuất mã đơn BHX từ nội dung chuyển khoản VietinBank
-    string searchContent = (model.content ?? "") + " " + (model.description ?? "");
-    int orderId = ExtractOrderId(searchContent); // BHX1234 -> OrderID 1234
-    
-    var order = await _dbContext.Order.FirstOrDefaultAsync(o => o.Id == orderId);
-    if (order == null) return (false, "Đơn hàng không tồn tại", 0);
-
-    // Gạch nợ tự động 24/7 không cần con người can thiệp
-    order.PaymentStatus = 1; // 1 = Đã Thanh Toán
-    await _dbContext.SaveChangesAsync();
-
-    // Gửi Email hóa đơn HTML tự động
-    OrderInvoiceEmailService.SendOrderConfirmationEmail(order, order.User.Email);
-    return (true, $"[GẠCH NỢ THÀNH CÔNG] Đơn #{orderId}!", orderId);
-}`,
-`// 2. OrderCheckoutService.cs - Thin Controller & Service Layer Pattern
-public async Task<(Cart CartData, List<UserAddress> Addresses, List<VoucherResult> Vouchers)> 
-GetCheckoutDataAsync(string userId, string selectedIds, string coupon)
-{
-    var cart = _cartService.GetCartByUserId(userId);
-    var userAddresses = await _dbContext.UserAddresses
-        .Where(a => a.UserId == userId).OrderByDescending(a => a.IsDefault).ToListAsync();
-
-    // Đánh giá Smart Voucher Engine theo giỏ hàng thực tế
-    var suggestedVouchers = _voucherService.GetSuggestedVouchersForCart(cart.CartDetails, userId);
-
-    return (cart, userAddresses, suggestedVouchers);
-}`,
-`// 3. ProductSalesBOM.cs - Multi-Unit Conversion & Parent Stock Hierarchy
-public class Product
-{
-    public int Id { get; set; }
-    public string Name { get; set; } // Lon Coca-Cola lẻ vs Thùng 24 lon
-    public int? ParentProductId { get; set; } // Con trỏ về sản phẩm mẹ (Lon lẻ)
-    public int UnitMultiplier { get; set; } = 1; // Thùng = 24
-
-    [NotMapped]
-    public int AvailableStock => ParentProductId.HasValue && ParentProduct != null 
-        ? ParentProduct.Quantity / (UnitMultiplier > 0 ? UnitMultiplier : 1) 
-        : Quantity;
-}`
-];
-
-function switchCodeTab(index) {
-    const tabs = document.querySelectorAll('.tab-btn');
-    tabs.forEach((tab, i) => {
-        tab.classList.toggle('active', i === index);
-    });
-    
-    const contentBox = document.getElementById('code-content');
-    if (contentBox) {
-        contentBox.innerHTML = `<pre><code>${formatCode(codeSnippets[index])}</code></pre>`;
-    }
-}
-
-function formatCode(code) {
-    return code
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-        .replace(/\/\/.*/g, '<span class="code-comment">$&</span>')
-        .replace(/(public|async|Task|string|int|bool|var|await|return|class|if|new)/g, '<span class="code-keyword">$1</span>')
-        .replace(/(ProcessWebhookAsync|ExtractOrderId|FirstOrDefaultAsync|SaveChangesAsync|SendOrderConfirmationEmail|GetCheckoutDataAsync)/g, '<span class="code-func">$1</span>');
-}
-
-function runWebhookSimulation() {
-    const orderInput = document.getElementById('sim-order-id');
-    const amountInput = document.getElementById('sim-amount');
-    const logBox = document.getElementById('sim-log');
-
-    const orderId = orderInput ? (orderInput.value || "BHX8899") : "BHX8899";
-    const amount = amountInput ? (parseInt(amountInput.value) || 150000) : 150000;
-
-    logBox.innerHTML = `<span style="color:#38bdf8;">[${new Date().toLocaleTimeString()}] [WEBHOOK INCOMING] Received POST request from SePay Gateway...</span><br>`;
-    
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#fbbf24;">[${new Date().toLocaleTimeString()}] [PAYLOAD PARSED] TransferAmount: ${amount.toLocaleString()}đ | Content: "CHUYEN TIEN THANH TOAN DON HANG ${orderId}"</span><br>`;
-    }, 600);
-
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#a78bfa;">[${new Date().toLocaleTimeString()}] [REGEX MATCHED] Extracted OrderID: ${orderId.replace(/\D/g, '') || 8899} from transaction text.</span><br>`;
-    }, 1200);
-
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#34d399; font-weight:bold;">[${new Date().toLocaleTimeString()}] [AUTO RECONCILED SUCCESS] Order #${orderId.replace(/\D/g, '') || 8899} PaymentStatus = 1 (PAID VIA VIETQR).</span><br>`;
-    }, 1800);
-
-    setTimeout(() => {
-        logBox.innerHTML += `<span style="color:#60a5fa;">[${new Date().toLocaleTimeString()}] [SMTP EMAIL SENT] HTML Invoice & Receipt dispatched to Customer.</span><br>`;
-    }, 2400);
-}
-
-function copyEmail(e) {
-    e.preventDefault();
-    navigator.clipboard.writeText("nguyenminhtan301205@gmail.com");
-    const toast = document.getElementById("toast");
-    if (toast) {
-        toast.style.display = "block";
-        setTimeout(() => { toast.style.display = "none"; }, 3000);
-    }
-}
-
-function initNavToggle() {
-    const toggleBtn = document.getElementById('nav-toggle-btn');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (toggleBtn && navMenu) {
-        toggleBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            const icon = toggleBtn.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-xmark');
-            }
-        });
-
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const icon = toggleBtn.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-xmark');
-                }
-            });
-        });
-    }
-}
-
-function initScrollSpy() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-    </script>
 </body>
 </html>
